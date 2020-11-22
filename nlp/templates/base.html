@@ -1,0 +1,253 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>NLP in Your Area</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'nlp/css/fontawesome/all.min.css' %}">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'nlp/css/bootstrap.min.css' %}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'nlp/css/mdb.min.css' %}">
+  <!-- Progress Bar in Head of Page -->
+  <link rel="stylesheet" href="{% static 'nlp/css/nprogress.min.css' %}">
+  <!-- Scrollbar -->
+  <link rel="stylesheet" href="{% static 'nlp/css/simplebar.min.css' %}">
+  <!-- Variables -->
+  <link rel="stylesheet" href="{% static 'nlp/css/variables.css' %}">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'nlp/css/style.css' %}">
+  {% block custom_css %}{% endblock %}
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png"
+    href="{% static 'nlp/img/favicon.ico' %}" />
+</head>
+
+<body>
+
+  <!-- Main Navigation -->
+  <header class="page-header">
+
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-{{ navbar|default:'dark' }} object-bgcolor {{ contrast|default:'moon' }} fixed-top py-1">
+      <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'extract' %}">
+          <img src="{% static 'nlp/img/svg/nlp.svg' %}" height="30"
+            class="d-inline-block align-top logo-fill {{ contrast|default:'moon' }}"
+            alt="logo">
+          <strong>
+            NLP<span class="d-none d-sm-inline-block">&nbsp;in Your
+              Area</span><sup><i class="fas fa-search fa-sm"></i></sup>
+          </strong>
+        </a>
+        <!-- Brand -->
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbar_collapse" aria-controls="navbar_collapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Toggler -->
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbar_collapse">
+
+          <!-- Url -->
+          <ul class="navbar-nav mr-auto">
+            <li
+              class="nav-item {% block nav_extract %}{% endblock %} mt-2 mt-lg-0">
+              <a class="nav-link rounded" href="#">信息抽取</a>
+            </li>
+            <li class="nav-item  mt-2 mt-lg-0 d-none">
+              <a class="nav-link" href="#">请先移除父元素的“d-none”类</a>
+            </li>
+          </ul>
+          <!-- Url -->
+
+          <!-- Icon -->
+          <ul
+            class="navbar-nav ml-auto nav-flex-icons mt-3 mb-2 mt-lg-0 mb-lg-0">
+            <li class="nav-item" data-toggle="tooltip" data-placement="bottom"
+              title="关于我们">
+              <a href="http://wiki.datahammer.net/"
+                class="nav-link waves-effect waves-light p-0" target="_blank">
+                <i class="fas fa-info-circle fa-lg"></i>
+              </a>
+            </li>
+            <li class="nav-item ml-2" data-toggle="tooltip"
+              data-placement="bottom" title="项目仓库">
+              <a href="https://github.com/wongself/nlp-in-your-area"
+                class="nav-link waves-effect waves-light p-0" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+            </li>
+            <li class="nav-item d-flex align-items-center ml-4"
+              data-toggle="tooltip" data-placement="bottom" title="切换明暗">
+              <i
+                class="fas fa-sun fa-1x oppost-color {{ contrast|default:'moon' }}"></i>
+              <label class="nav-switch mx-1 my-0" id="switch_contrast"
+                onclick="toggle_contrast()">
+                <input type="checkbox" {{ checkbox|default:'checked' }}>
+                <span class="slider round"></span>
+              </label>
+              <i
+                class="fas fa-moon fa-1x oppost-color {{ contrast|default:'moon' }}"></i>
+            </li>
+          </ul>
+          <!-- Icon -->
+
+        </div>
+        <!-- Collapse -->
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+  </header>
+  <!--Main Navigation-->
+
+  <!-- Main Layout -->
+  <main class="page-main canvas-bgcolor {{ contrast|default:'moon' }}">
+
+    <!-- Page Layout -->
+    {% block page_layout %} {% endblock %}
+    <!-- Page Layout -->
+
+    <!-- Intro Layout -->
+    <div class="container page-intro">
+
+      <!-- Introduction -->
+      <div class="row row-intro d-flex justify-content-center">
+        <div class="col-10 col-intro">
+
+          <!-- jumbotron -->
+          <div
+            class="z-depth-1 rounded text-center stress-color object-bgcolor {{ contrast|default:'moon' }} p-4">
+            <div class="row">
+
+              <!-- Grid column -->
+              <div class="d-none d-lg-block col-lg-5">
+                {% block page_intro_img %} {% endblock %}
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-12 col-lg-7 text-left mt-3">
+
+                <!-- Excerpt -->
+                <div class="deep-orange-text">
+                  {% block page_intro_title %} {% endblock %}
+                </div>
+
+                {% block page_intro_detail %} {% endblock %}
+
+                <a href="http://wiki.datahammer.net/" target="_blank"
+                  class="btn btn-deep-orange mx-0 py-2"
+                  style="font-size: 1rem;">关于我们</a>
+
+              </div>
+              <!-- Grid column -->
+
+            </div>
+          </div>
+          <!-- jumbotron -->
+
+        </div>
+      </div>
+      <!-- Introduction -->
+
+    </div>
+    <!-- Intro Layout -->
+
+  </main>
+  <!-- Main Layout -->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+
+    <!-- Copyright -->
+    <div
+      class="footer-copyright d-flex flex-center canvas-bgcolor {{ contrast|default:'moon' }} py-3">
+      <span class="text-muted">© 2020 Copyright</span>
+      <span class="stress-color {{ contrast|default:'moon' }} ml-1">NLP in Your
+        Area.</span>
+      <span
+        class="stress-color {{ contrast|default:'moon' }} d-none d-md-flex ml-1">Beijing
+        Institute of
+        Technology.</span>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal_error" tabindex="-1" role="dialog">
+    <div
+      class="modal-dialog modal-dialog-centered modal-sm modal-notify modal-danger"
+      role="document">
+      <!-- Content -->
+      <div class="modal-content text-center">
+        <!--Header-->
+        <div class="modal-header d-flex justify-content-center">
+          <p class="heading" id="modal_error_content">Error happened, try again.
+          </p>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <i class="fas fa-times fa-4x animated rotateIn"></i>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer flex-center">
+          <a type="button" class="btn btn-danger waves-effect"
+            data-dismiss="modal">OK</a>
+        </div>
+      </div>
+      <!-- Content -->
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'nlp/js/jquery.min.js' %}">
+  </script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'nlp/js/popper.min.js' %}">
+  </script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'nlp/js/bootstrap.min.js' %}">
+  </script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'nlp/js/mdb.min.js' %}">
+  </script>
+  <!-- Progress Bar in Head of Page -->
+  <script type="text/javascript" src="{% static 'nlp/js/nprogress.min.js' %}">
+  </script>
+  <!-- Browser Detect -->
+  <script type="text/javascript" src="{% static 'nlp/js/bowser.min.js' %}">
+  </script>
+  <!-- Scrollbar -->
+  <script type="text/javascript" src="{% static 'nlp/js/simplebar.min.js' %}">
+  </script>
+  <!-- Variables -->
+  <script type="text/javascript" src="{% static 'nlp/js/variables.js' %}">
+  </script>
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="{% static 'nlp/js/style.js' %}"></script>
+  {% block custom_js %}{% endblock %}
+
+</body>
+
+</html>
