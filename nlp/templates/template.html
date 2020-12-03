@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Active -->
-{% block nav_extract %}
+{% block nav_template %}
 active
 {% endblock %}
 <!-- Active -->
@@ -11,9 +11,7 @@ active
 {% block custom_css %}
 
 <!-- Custom -->
-<link rel="stylesheet" href="{% static 'nlp/css/custom/extract.css' %}">
-<!-- Annotation -->
-<link rel="stylesheet" href="{% static 'nlp/css/custom/annotation.css' %}">
+<link rel="stylesheet" href="{% static 'nlp/css/custom/template.css' %}">
 
 {% endblock %}
 <!-- Custom Styles -->
@@ -55,8 +53,8 @@ active
         <!-- Search -->
         <button type="button"
           class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
-          id="extract_button" onclick="trigger_extract()">
-          <span>开始抽取</span>
+          id="template_button" onclick="trigger_template()">
+          <span>开始搜索</span>
           <i class="fas fa-arrow-right"></i>
         </button>
         <!-- Search -->
@@ -91,30 +89,12 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入以抽取。</div>
+              <div class="placeholder-title">在此输入以搜索。</div>
               <div class="placeholder-note">
-                <p>点击<code>抽取</code>按钮来提交输入文本。</p>
-                <p>
-                  点击<code>上传</code>按钮来上传&thinsp;.txt&thinsp;,&thinsp;.docx&thinsp;或&thinsp;.pptx&thinsp;文件。
-                </p>
-                <p>或者<code>拖拽</code>本机文档到本页。</p>
+                <p>点击<code>搜索</code>按钮来提交输入文本。</p>
               </div>
             </div>
             <!-- Placeholder -->
-
-            <!-- Upload -->
-            <div class="pane-widget" id="left_text_upload">
-              <button type="button"
-                class="btn btn-link stress-color {{ contrast|default:'moon' }} p-0 m-0"
-                id="upload_button">
-                <i class="fas fa-arrow-up"></i>
-                <span>上传文档</span>
-              </button>
-            </div>
-            {% csrf_token %}
-            <input type="file" id="upload_input" accept=".txt,.docx,.pptx"
-              style="display: none;">
-            <!-- Upload -->
 
             <!-- Statistic -->
             <div class="pane-widget stress-color {{ contrast|default:'moon' }}"
@@ -124,19 +104,6 @@ active
               <span>5000</span>
             </div>
             <!-- Statistic -->
-
-            <!-- Mask -->
-            <div
-              class="pane-mask mask-drag stress-color object-bgcolor {{ contrast|default:'moon' }} user-select-none rounded-bottom"
-              id="mask_extract_drag">
-              <div class="flex-column flex-center">
-                <div class="spinner-border" role="status">
-                  <span class="sr-only">Waiting...</span>
-                </div>
-                <h6 class="mx-3 mt-5">将文件拖放到本页</h6>
-              </div>
-            </div>
-            <!-- Mask -->
 
           </div>
           <!-- Content Text -->
@@ -181,14 +148,6 @@ active
           <div class="tab-pane fade show active" id="tab_pane_result"
             role="tabpanel" aria-labelledby="tab_nav_result">
 
-            <!-- Render Button -->
-            <button type="button" class="btn btn-sm tab-button render-button object-color stress-bgcolor {{ contrast|default:'moon' }} px-3 py-1 m-0"
-              id="render_result_button" style="display: none;" onclick="_re_render_result()">
-              重新渲染
-              <i class="fas fa-poll-h ml-1"></i>
-            </button>
-            <!-- Render Button -->
-
             <!-- Showcase -->
             <div class="pane-body" id="right_result_container" data-simplebar>
               <div
@@ -200,9 +159,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示抽取结果。</div>
+              <div class="placeholder-title">此处显示搜索结果。</div>
               <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的抽取结果。</p>
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -240,20 +199,19 @@ active
 <!-- Page Intro -->
 {% block page_intro_img %}
 <img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
-  alt="Information Extraction">
+  alt="Template">
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Information
-  Extraction</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Template</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
-<h4 class="h4 mb-4">信息抽取</h4>
+<h4 class="h4 mb-4">模板</h4>
 <p class="font-weight-normal">
-  信息是指从非结构化或半结构化文档中提取结构化信息的技术，包含两部分：命名实体识别和关系抽取。</p>
+  模块简略介绍</p>
 <p class="font-weight-normal">
-  命名实体识别（NER）的任务是在文本中查找每个提及的命名实体并标记其类型。关系抽取（RE）的任务是查找和分类文本实体之间的语义关系，通常是二元关系。</p>
+  模块详细介绍</p>
 {% endblock %}
 <!-- Page Intro -->
 
@@ -261,19 +219,8 @@ active
 <!-- Custom Scripts -->
 {% block custom_js %}
 
-<!-- Document -->
-<script type="text/javascript" src="{% static 'nlp/js/document.js' %}"></script>
-<script type="text/javascript" src="{% static 'nlp/js/docxtemplater.min.js' %}">
-</script>
-<script type="text/javascript" src="{% static 'nlp/js/pizzip.min.js' %}">
-</script>
-<!-- Drag & Drop -->
-<script type="text/javascript" src="{% static 'nlp/js/dragdrop.js' %}"></script>
 <!-- Custom -->
-<script type="text/javascript" src="{% static 'nlp/js/custom/extract.js' %}"></script>
-<!-- Annotation -->
-<script type="text/javascript" src="{% static 'nlp/js/custom/annotation.js' %}">
-</script>
+<script type="text/javascript" src="{% static 'nlp/js/custom/template.js' %}"></script>
 
 {% endblock %}
 <!-- Custom Scripts -->

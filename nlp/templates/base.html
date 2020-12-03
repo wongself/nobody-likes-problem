@@ -21,9 +21,9 @@
   <!-- Scrollbar -->
   <link rel="stylesheet" href="{% static 'nlp/css/simplebar.min.css' %}">
   <!-- Variables -->
-  <link rel="stylesheet" href="{% static 'nlp/css/variables.css' %}">
+  <link rel="stylesheet" href="{% static 'nlp/css/custom/variables.css' %}">
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="{% static 'nlp/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'nlp/css/custom/style.css' %}">
   {% block custom_css %}{% endblock %}
 
   <!-- Favicon -->
@@ -69,10 +69,12 @@
           <ul class="navbar-nav mr-auto">
             <li
               class="nav-item {% block nav_extract %}{% endblock %} mt-2 mt-lg-0">
-              <a class="nav-link rounded" href="#">信息抽取</a>
+              <a class="nav-link rounded" href="{% url 'extract' %}">信息抽取</a>
             </li>
-            <li class="nav-item  mt-2 mt-lg-0 d-none">
-              <a class="nav-link" href="#">请先移除父元素的“d-none”类</a>
+            <!-- 复制下方的<li>块，粘贴在该注释之上，并将 template 字段进行重命名，就像 nav_extract 一样 -->
+            <li
+              class="nav-item {% block nav_template %}{% endblock %} mt-2 mt-lg-0">
+              <a class="nav-link rounded" href="{% url 'template' %}">模板</a>
             </li>
           </ul>
           <!-- Url -->
@@ -243,10 +245,12 @@
   <script type="text/javascript" src="{% static 'nlp/js/simplebar.min.js' %}">
   </script>
   <!-- Variables -->
-  <script type="text/javascript" src="{% static 'nlp/js/variables.js' %}">
+  <script type="text/javascript"
+    src="{% static 'nlp/js/custom/variables.js' %}">
   </script>
   <!-- Custom Scripts -->
-  <script type="text/javascript" src="{% static 'nlp/js/style.js' %}"></script>
+  <script type="text/javascript" src="{% static 'nlp/js/custom/style.js' %}">
+  </script>
   {% block custom_js %}{% endblock %}
 
 </body>

@@ -4,15 +4,6 @@ var pre_extract_result = null
 $(function() {
   // Initialization
   $('#left_text_area').val('')
-  $('[data-toggle="tooltip"]').tooltip()
-  // $('.pane-mask').show()
-  new WOW().init()
-
-  // Browser Detect
-  if (bowser.name == 'Internet Explorer') {
-    raise_modal_error('不兼容当前浏览器！')
-    return
-  }
 
   // Resize
   $('#right_result_container').on('widthChanged', function() {
@@ -85,37 +76,6 @@ function parse_extract(jresult) {
   pre_extract_result = jresult
   annotate_predict(jresult, $('#right_result_area'))
   toggle_result_placeholder()
-}
-
-// Placeholder
-function toggle_textarea_placeholder() {
-  var $left_area = $('#left_text_area')
-  var $left_stat_curr = $('#left_text_stat_curr')
-  var $left_place = $('#left_text_place')
-  var left_text_length = $left_area.val().length
-  var left_text_remain = max_length - left_text_length
-
-  if (left_text_length > 0) {
-    $left_place.hide()
-  } else {
-    $left_place.show()
-  }
-
-  if (left_text_remain > 0) {
-    $left_stat_curr.html(left_text_length)
-  } else {
-    $left_stat_curr.html(max_length)
-    $left_area.val($left_area.val().substring(0, max_length))
-  }
-}
-
-function toggle_result_placeholder() {
-  var $tgt = $('#right_result_area')
-  if (is_empty($tgt.html())) {
-    $('#right_result_place').show()
-  } else {
-    $('#right_result_place').hide()
-  }
 }
 
 // Render

@@ -37,15 +37,19 @@ function ajax_src_submit(source, qtype) {
 
       try {
         switch (qtype) {
-          case 'extract':
-            flag = parse_extract(ret['jextract'])
-            retry_ajax_submit(flag, this)
-            break
           case 'contrast':
             if (ret['jcontrast'] == __ERROR__) {
               raise_modal_error('未知错误，请重试！')
               return
             }
+            break
+          case 'extract':
+            flag = parse_extract(ret['jextract'])
+            retry_ajax_submit(flag, this)
+            break
+          case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
+            flag = parse_template(ret['jtemplate'])
+            retry_ajax_submit(flag, this)
             break
           default:
             raise_modal_error('未知错误，请重试！')
@@ -72,8 +76,6 @@ function ajax_src_submit(source, qtype) {
 function disable_operation(qtype) {
   switch (qtype) {
     case 'extract':
-      // Mask
-      $('#mask_extract_wait').fadeIn()
       // Button
       $('#extract_button').html('<div \
         class="spinner-border spinner-border-sm mr-1" \
@@ -81,9 +83,16 @@ function disable_operation(qtype) {
       $('#upload_button').html('<div \
         class="spinner-border spinner-border-sm mr-1" \
         role="status" aria-hidden="true"></div>' + '上传中...').addClass('disabled')
-      $('#export_button').addClass('disabled')
-      break
+    case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
+      // Button
+      $('#template_button').html('<div \
+       class="spinner-border spinner-border-sm mr-1" \
+       role="status" aria-hidden="true"></div>' + '搜索中...').addClass('disabled')
     default:
+      // Mask
+      $('#mask_result_wait').fadeIn()
+      // Button
+      $('#export_button').addClass('disabled')
       break
   }
 }
@@ -91,16 +100,20 @@ function disable_operation(qtype) {
 function enable_operation(qtype) {
   switch (qtype) {
     case 'extract':
-      // Mask
-      $('#mask_extract_wait').fadeOut()
       // Button
       $('#extract_button').html('开始抽取<i \
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
       $('#upload_button').html('<i \
         class="fas fa-arrow-up mr-1"></i>上传文档').removeClass('disabled')
-      $('#export_button').removeClass('disabled')
-      break
+    case 'template':// 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
+      // Button
+      $('#template_button').html('开始抽取<i \
+        class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     default:
+      // Mask
+      $('#mask_result_wait').fadeOut()
+      // Button
+      $('#export_button').removeClass('disabled')
       break
   }
 }
@@ -135,6 +148,81 @@ function get_contrast() {
   } else {
     return 'sun'
   }
+}
+
+// Placeholder
+function toggle_textarea_placeholder() {
+  var $left_area = $('#left_text_area')
+  var $left_stat_curr = $('#left_text_stat_curr')
+  var $left_place = $('#left_text_place')
+  var left_text_length = $left_area.val().length
+  var left_text_remain = max_length - left_text_length
+
+  if (left_text_length > 0) {
+    $left_place.hide()
+  } else {
+    $left_place.show()
+  }
+
+  if (left_text_remain > 0) {
+    $left_stat_curr.html(left_text_length)
+  } else {
+    $left_stat_curr.html(max_length)
+    $left_area.val($left_area.val().substring(0, max_length))
+  }
+}
+
+function toggle_result_placeholder() {
+  var $tgt = $('#right_result_area')
+  if (is_empty($tgt.html())) {
+    $('#right_result_place').show()
+  } else {
+    $('#right_result_place').hide()
+  }
+}
+
+// Export Predictions
+function export_result(result) {
+  if (result == null) {
+    raise_modal_error('没有预测可导出！')
+    return
+  }
+
+  var jexport = JSON.stringify(result)
+  var blob = new Blob([jexport], {
+    type: 'text/plain;charset=utf-8'
+  })
+  var filename = 'result_of_extract ' + generate_timestamp() + '.json'
+
+  var url = window.URL || window.webkitURL
+  link = url.createObjectURL(blob)
+  var a = $('<a />')
+  a.attr('download', filename)
+  a.attr('href', link)
+  $('body').append(a)
+  a[0].click()
+  $('body').remove(a)
+}
+
+function generate_timestamp() {
+  var curr_time = new Date().Format('yyyy-MM-dd hh_mm_ss')
+  return curr_time
+}
+
+Date.prototype.Format = function(fmt) {
+  var o = {
+    'M+': this.getMonth() + 1,
+    'd+': this.getDate(),
+    'h+': this.getHours(),
+    'm+': this.getMinutes(),
+    's+': this.getSeconds(),
+    'q+': Math.floor((this.getMonth() + 3) / 3),
+    'S': this.getMilliseconds()
+  }
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length))
+  for (var k in o)
+    if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+  return fmt
 }
 
 // Is Empty
