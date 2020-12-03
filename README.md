@@ -39,7 +39,7 @@
 3. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`来测试 Django 架构是否安装成功。
 
 > 👇信息抽取模块
-4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nlp-in-your-area/tree/main/nlp/applicaitons/spert/README.md) 文件。
+4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/blob/main/nlp/applicaitons/spert/README.md) 文件。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
