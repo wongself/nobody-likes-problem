@@ -47,6 +47,10 @@ function ajax_src_submit(source, qtype) {
             flag = parse_extract(ret['jextract'])
             retry_ajax_submit(flag, this)
             break
+          case 'translation':
+            flag = parse_translation(ret['jtranslation'])
+            retry_ajax_submit(flag, this)
+            break
           case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
             flag = parse_template(ret['jtemplate'])
             retry_ajax_submit(flag, this)
@@ -83,6 +87,10 @@ function disable_operation(qtype) {
       $('#upload_button').html('<div \
         class="spinner-border spinner-border-sm mr-1" \
         role="status" aria-hidden="true"></div>' + '上传中...').addClass('disabled')
+    case 'translation':
+      $('#translation_button').html('<div \
+       class="spinner-border spinner-border-sm mr-1" \
+       role="status" aria-hidden="true"></div>' + '翻译中...').addClass('disabled')
     case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
       $('#template_button').html('<div \
@@ -105,6 +113,10 @@ function enable_operation(qtype) {
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
       $('#upload_button').html('<i \
         class="fas fa-arrow-up mr-1"></i>上传文档').removeClass('disabled')
+    case 'translation':
+      // Button
+      $('#translation_button').html('开始翻译<i \
+        class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     case 'template':// 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
       $('#template_button').html('开始抽取<i \

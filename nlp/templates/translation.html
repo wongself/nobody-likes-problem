@@ -1,0 +1,205 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!-- Active -->
+{% block nav_translation %}
+active
+{% endblock %}
+<!-- Active -->
+
+<!-- Custom Styles -->
+{% block custom_css %}
+
+<!-- Custom -->
+<link rel="stylesheet" href="{% static 'nlp/css/translation.css' %}">
+
+{% endblock %}
+<!-- Custom Styles -->
+
+<!-- Page Layout -->
+{% block page_layout %}
+<div class="container page-container">
+
+  <!-- Tab -->
+  <div class="row row-tab mt-3 mt-sm-4">
+
+    <!-- Left Tab -->
+    <div class="col-12 col-lg-6 col-tab">
+      <div
+        class="z-depth-1 rounded object-bgcolor {{ contrast|default:'moon' }}"
+        id="left_tab">
+
+        <!-- Translation -->
+        <button type="button"
+          class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
+          id="translation_button" onclick="trigger_translation()">
+          <span>开始翻译</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <!-- Translation -->
+
+        <!-- Nav -->
+        <ul class="nav nav-tabs headup-bgcolor {{ contrast|default:'moon' }}"
+          id="left_nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
+              id="tab_nav_text" data-toggle="tab" href="#tab_pane_text"
+              role="tab">英文</a>
+          </li>
+        </ul>
+        <!-- Nav -->
+
+        <!-- Pane -->
+        <div class="tab-content" id="left_pane">
+
+          <!-- Content Text -->
+          <div class="tab-pane fade show active" id="tab_pane_text"
+            role="tabpanel" aria-labelledby="tab_nav_text">
+
+            <!-- Textarea -->
+            {% csrf_token %}
+            <div class="pane-body pt-0 px-0 pb-5" id="left_text_container">
+              <textarea
+                class="form-control stress-color object-bgcolor {{ contrast|default:'moon' }} border-0 shadow-none h-100 pt-3 px-3 pb-0"
+                id="left_text_area" maxlength="5000" style="resize: none;"
+                autofocus></textarea>
+            </div>
+            <!-- Textarea -->
+
+            <!-- Placeholder -->
+            <div class="pane-placeholder" id="left_text_place">
+              <div class="placeholder-title">在此输入以翻译。</div>
+              <div class="placeholder-note">
+                <p>点击<code>翻译</code>按钮来提交输入文本。</p>
+              </div>
+            </div>
+            <!-- Placeholder -->
+
+            <!-- Statistic -->
+            <div class="pane-widget stress-color {{ contrast|default:'moon' }}"
+              id="left_text_stat">
+              <span id="left_text_stat_curr">0</span>
+              <span>/</span>
+              <span>5000</span>
+            </div>
+            <!-- Statistic -->
+
+          </div>
+          <!-- Content Text -->
+
+        </div>
+        <!-- Pane -->
+
+      </div>
+    </div>
+    <!-- Left Tab -->
+
+    <!-- Right Tab -->
+    <div class="col-12 col-lg-6 col-tab mt-4 mt-lg-0">
+      <div
+        class="z-depth-1 rounded object-bgcolor {{ contrast|default:'moon' }}"
+        id="right_tab">
+
+        <!-- Export Button -->
+        <button type="button"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          id="export_button">
+          导出结果
+          <i class="fas fa-share"></i>
+        </button>
+        <!-- Export Button -->
+
+        <!-- Nav -->
+        <ul class="nav nav-tabs headup-bgcolor {{ contrast|default:'moon' }}"
+          id="right_nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
+              id="tab_nav_result" data-toggle="tab" href="#tab_pane_result"
+              role="tab">中文</a>
+          </li>
+        </ul>
+        <!-- Nav -->
+
+        <!-- Pane -->
+        <div class="tab-content" id="right_pane">
+
+          <!-- Result -->
+          <div class="tab-pane fade show active" id="tab_pane_result"
+            role="tabpanel" aria-labelledby="tab_nav_result">
+
+            <!-- Showcase -->
+            <div class="pane-body" id="right_result_container" data-simplebar>
+              <div
+                class="annot-showcase stress-color {{ contrast|default:'moon' }}"
+                id="right_result_area">
+              </div>
+            </div>
+            <!-- Showcase -->
+
+            <!-- Placeholder -->
+            <div class="pane-placeholder" id="right_result_place">
+              <div class="placeholder-title">此处显示翻译结果。</div>
+              <div class="placeholder-note">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的翻译结果。</p>
+              </div>
+            </div>
+            <!-- Placeholder -->
+
+            <!-- Mask -->
+            <div
+              class="pane-mask mask-wait stress-color object-bgcolor {{ contrast|default:'moon' }} user-select-none rounded-bottom"
+              id="mask_result_wait">
+              <div class="flex-column flex-center">
+                <div class="spinner-grow" role="status">
+                  <span class="sr-only">Waiting...</span>
+                </div>
+                <h6 class="mx-3 mt-5">请耐心等待</h6>
+              </div>
+            </div>
+            <!-- Mask -->
+
+          </div>
+          <!-- Result -->
+
+        </div>
+        <!-- Pane -->
+
+      </div>
+    </div>
+    <!-- Right Tab -->
+
+  </div>
+  <!-- Tab -->
+
+</div>
+{% endblock %}
+<!-- Page Layout -->
+
+<!-- Page Intro -->
+{% block page_intro_img %}
+<img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
+  alt="Machine Translation">
+{% endblock %}
+
+{% block page_intro_title %}
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Machine Translation</h6>
+{% endblock %}
+
+{% block page_intro_detail %}
+<h4 class="h4 mb-4">机器翻译</h4>
+<p class="font-weight-normal">
+  机器翻译（英语：Machine Translation，经常简写为MT，简称机译或机翻）属于计算语言学的范畴，其研究借由计算机程序将文字或演说从一种自然语言翻译成另一种自然语言。</p>
+<p class="font-weight-normal">
+  简单来说，机器翻译是通过将一个自然语言的字辞取代成另一个自然语言的字辞。借由使用语料库的技术，可达成更加复杂的自动翻译，包含可更佳的处理不同的文法结构、辞汇辨识、惯用语的对应等。</p>
+{% endblock %}
+<!-- Page Intro -->
+
+
+<!-- Custom Scripts -->
+{% block custom_js %}
+
+<!-- Custom -->
+<script type="text/javascript" src="{% static 'nlp/js/translation.js' %}"></script>
+
+{% endblock %}
+<!-- Custom Scripts -->
