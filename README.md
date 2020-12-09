@@ -70,16 +70,14 @@
 > 👇你的模块写在这里
 5. 你的模块写在这里
 
-> 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
-
 ### 如何构建你的服务
+> 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
 1. 为了创建类似于信息抽取模块（已占用端口号`2334`）的服务，以便于 Django 框架中的视图层向创建的服务发送请求并接收响应，你可以参考`nobody-likes-problem/nlp/applicaitons/server_template`中的文件格式，自行在`nobody-likes-problem/nlp/applicaitons`中创建一个新的文件夹（例如`nobody-likes-problem/nlp/applicaitons/dialog`），并参考`/server_template`中的`server.py`、`configure.py`和`__init__.py`文件复制到`/dialog`中。
-2. 接着，将`nobody-likes-problem/nlp/applicaitons/dialog/server.py`中的`template`字段均重命名为`dialog`，即`query_template->query_dialog`。
+2. 接着，参考`nobody-likes-problem/nlp/applicaitons/dialog/server.py`中`分词完之后`字段所在行的注释，编写自己的服务内核。
 3. 在服务根目录，输入命令`python ./server.py`来启动你刚刚创建的模块。随后，在浏览器中输入本机网址及对应端口，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
 
-> 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
-
 ### 如何展示你的服务
+> 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
 1. 为了在页面成功展示模块的输出结果，需要自行创建对应页面并设置路径，详见下方说明。
 2. 首先，在`nobody-likes-problem/nlp/templates/template.html`中展示了一个页面模板，你也可以在`2444`端口直接点击导航栏中的`模板`一项查看模板的[展示效果](http://101.124.42.4:2444/template/)。现在，为了创建模块对应的页面，需要在对应文件夹内拷贝一份`template.html`并重命名为模块对应的名称（推荐使用模块功能对应的核心单词，如`dialog.html`，后续均用`dialog`代表模块名称）。随后，在`dialog.html`中将<big>**所有**</big>跟`template`有关的名称重命名为`dialog`，如`trigger_template->trigger_dialog`、`template.js->dialog.js`等。
 3. 接着，参考`nobody-likes-problem/nlp/templates/base.html`中`nav_template`字段所在行的注释，创建一个导航`<li>`块。需要注意的是，<big>**仅新创建的代码块**</big>中的`template`字段需要重命名为`dialog`。
