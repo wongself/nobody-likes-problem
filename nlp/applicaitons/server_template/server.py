@@ -18,8 +18,8 @@ def hello_world():
     return 'Nobody Likes Problem'
 
 
-@app.route('/query_server', methods=['POST'])
-def query_server():
+@app.route('/query_template', methods=['POST'])
+def query_template():
     if request.method == 'POST':
         source = request.form['source']
         jsentences = nltk.sent_tokenize(source)
