@@ -1,5 +1,7 @@
 # nobody-likes-problem
 
+> 很抱歉，本项目中的`nobody-likes-problem/nlp/applicaitons`中的`applicaitons`拼写错误，请将错就错。_:(´ཀ`」 ∠):
+
 ## 安装部署
 
 ### 展示网址
