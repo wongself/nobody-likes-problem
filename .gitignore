@@ -157,5 +157,4 @@ dmypy.json
 /static
 
 /nlp/applicaitons/text_classification_ch/ERNIE_pretrain/
-/nlp/applicaitons/text_classification_ch/THUCNews/data/*
-/nlp/applicaitons/text_classification_ch/THUCNews/saved_dict/*
+/nlp/applicaitons/text_classification_ch/THUCNews/
