@@ -1,0 +1,331 @@
+/* Variables */
+:root {
+  /* Entity */
+  --entity-type-task-color: #eb323c;
+  --entity-type-method-color: #eb7f00;
+  --entity-type-metric-color: #bb9e0a;
+  --entity-type-material-color: #689f38;
+  --entity-type-generic-color: #2980b9;
+  --entity-type-otherscientificterm-color: #7a4ec7;
+  --entity-type-none-color: transparent;
+
+  /* Relation */
+  --relation-type-used-color: #eb323c;
+  --relation-type-feature-color: #eb7f00;
+  --relation-type-hyponym-color: #eeb100;
+  --relation-type-evaluate-color: #689f38;
+  --relation-type-part-color: #289976;
+  --relation-type-compare-color: #2980b9;
+  --relation-type-conjunction-color: #7a4ec7;
+  --relation-type-none-color: transparent;
+
+  /* Contrast */
+  --sun-oppost-color: #000000;
+  --sun-stress-color: #495057;
+  --sun-headup-color: #d2d2d2;
+  --sun-object-color: #ffffff;
+  --sun-canvas-color: #f1f1f1;
+  --moon-oppost-color: #ffffff;
+  --moon-stress-color: #e6e6e6;
+  --moon-headup-color: #393939;
+  --moon-object-color: #2e2e2e;
+  --moon-canvas-color: #212121;
+
+  --scroll-bar-color: #e6e6e6;
+  --sentence-bar-color: #7f7f7f;
+
+  /* Tab */
+  --tab-source-color: #bdbdbd;
+  --tab-source-dark: #9e9e9e;
+  --tab-extract-color: #b0bec5;
+  --tab-extract-dark: #90a4ae;
+}
+
+/* Variables */
+
+/* Filter */
+.bright.sun,
+.bright.moon {
+  position: relative;
+  z-index: 0;
+}
+
+.bright.sun::before,
+.bright.moon::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+}
+
+.bright.sun::before {
+  filter: brightness(175%);
+}
+
+.bright.moon::before {
+  filter: brightness(85%);
+}
+
+/* Filter */
+
+/* Color */
+.oppost-color {
+  color: var(--moon-oppost-color) !important;
+}
+
+.stress-color {
+  color: var(--moon-stress-color) !important;
+}
+
+.headup-color {
+  color: var(--moon-headup-color) !important;
+}
+
+.object-color {
+  color: var(--moon-object-color) !important;
+}
+
+.canvas-color {
+  color: var(--moon-canvas-color) !important;
+}
+
+.oppost-color.sun {
+  color: var(--sun-oppost-color) !important;
+}
+
+.stress-color.sun {
+  color: var(--sun-stress-color) !important;
+}
+
+.headup-color.sun {
+  color: var(--sun-headup-color) !important;
+}
+
+.object-color.sun {
+  color: var(--sun-object-color) !important;
+}
+
+.canvas-color.sun {
+  color: var(--sun-canvas-color) !important;
+}
+
+.oppost-color.moon {
+  color: var(--moon-oppost-color) !important;
+}
+
+.stress-color.moon {
+  color: var(--moon-stress-color) !important;
+}
+
+.headup-color.moon {
+  color: var(--moon-headup-color) !important;
+}
+
+.object-color.moon {
+  color: var(--moon-object-color) !important;
+}
+
+.canvas-color.moon {
+  color: var(--moon-canvas-color) !important;
+}
+
+/* Color */
+
+/* Background Color */
+.oppost-bgcolor {
+  background-color: var(--moon-oppost-color) !important;
+}
+
+.stress-bgcolor {
+  background-color: var(--moon-stress-color) !important;
+}
+
+.headup-bgcolor {
+  background-color: var(--moon-headup-color) !important;
+}
+
+.object-bgcolor {
+  background-color: var(--moon-object-color) !important;
+}
+
+.canvas-bgcolor {
+  background-color: var(--moon-canvas-color) !important;
+}
+
+.oppost-bgcolor.sun {
+  background-color: var(--sun-oppost-color) !important;
+}
+
+.stress-bgcolor.sun {
+  background-color: var(--sun-stress-color) !important;
+}
+
+.headup-bgcolor.sun {
+  background-color: var(--sun-headup-color) !important;
+}
+
+.object-bgcolor.sun {
+  background-color: var(--sun-object-color) !important;
+}
+
+.canvas-bgcolor.sun {
+  background-color: var(--sun-canvas-color) !important;
+}
+
+.oppost-bgcolor.moon {
+  background-color: var(--moon-oppost-color) !important;
+}
+
+.stress-bgcolor.moon {
+  background-color: var(--moon-stress-color) !important;
+}
+
+.headup-bgcolor.moon {
+  background-color: var(--moon-headup-color) !important;
+}
+
+.object-bgcolor.moon {
+  background-color: var(--moon-object-color) !important;
+}
+
+.canvas-bgcolor.moon {
+  background-color: var(--moon-canvas-color) !important;
+}
+
+/* Background Color */
+
+/* Entity Color */
+.etype-color-task {
+  color: var(--entity-type-task-color) !important;
+}
+
+.etype-color-method {
+  color: var(--entity-type-method-color) !important;
+}
+
+.etype-color-metric {
+  color: var(--entity-type-metric-color) !important;
+}
+
+.etype-color-material {
+  color: var(--entity-type-material-color) !important;
+}
+
+.etype-color-generic {
+  color: var(--entity-type-generic-color) !important;
+}
+
+.etype-color-otherscientificterm {
+  color: var(--entity-type-otherscientificterm-color) !important;
+}
+
+.etype-color-none {
+  color: var(--entity-type-none-color) !important;
+}
+
+/* Entity Color */
+
+/* Entity Background Color */
+.etype-bgcolor-task {
+  background-color: var(--entity-type-task-color) !important;
+}
+
+.etype-bgcolor-method {
+  background-color: var(--entity-type-method-color) !important;
+}
+
+.etype-bgcolor-metric {
+  background-color: var(--entity-type-metric-color) !important;
+}
+
+.etype-bgcolor-material {
+  background-color: var(--entity-type-material-color) !important;
+}
+
+.etype-bgcolor-generic {
+  background-color: var(--entity-type-generic-color) !important;
+}
+
+.etype-bgcolor-otherscientificterm {
+  background-color: var(--entity-type-otherscientificterm-color) !important;
+}
+
+.etype-bgcolor-none {
+  background-color: var(--entity-type-none-color) !important;
+}
+
+/* Entity Background Color */
+
+/* Relation Color */
+.rtype-color-used {
+  color: var(--relation-type-used-color) !important;
+}
+
+.rtype-color-feature {
+  color: var(--relation-type-feature-color) !important;
+}
+
+.rtype-color-hyponym {
+  color: var(--relation-type-hyponym-color) !important;
+}
+
+.rtype-color-evaluate {
+  color: var(--relation-type-evaluate-color) !important;
+}
+
+.rtype-color-part {
+  color: var(--relation-type-part-color) !important;
+}
+
+.rtype-color-compare {
+  color: var(--relation-type-compare-color) !important;
+}
+
+.rtype-color-conjunction {
+  color: var(--relation-type-conjunction-color) !important;
+}
+
+.rtype-color-none {
+  color: var(--relation-type-none-color) !important;
+}
+
+/* Relation Color */
+
+/* Relation Background Color */
+.rtype-bgcolor-used {
+  background-color: var(--relation-type-used-color) !important;
+}
+
+.rtype-bgcolor-feature {
+  background-color: var(--relation-type-feature-color) !important;
+}
+
+.rtype-bgcolor-hyponym {
+  background-color: var(--relation-type-hyponym-color) !important;
+}
+
+.rtype-bgcolor-evaluate {
+  background-color: var(--relation-type-evaluate-color) !important;
+}
+
+.rtype-bgcolor-part {
+  background-color: var(--relation-type-part-color) !important;
+}
+
+.rtype-bgcolor-compare {
+  background-color: var(--relation-type-compare-color) !important;
+}
+
+.rtype-bgcolor-conjunction {
+  background-color: var(--relation-type-conjunction-color) !important;
+}
+
+.rtype-bgcolor-none {
+  background-color: var(--relation-type-none-color) !important;
+}
+
+/* Relation Background Color */

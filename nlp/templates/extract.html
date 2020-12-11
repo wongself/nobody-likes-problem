@@ -1,0 +1,279 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!-- Active -->
+{% block nav_extract %}
+active
+{% endblock %}
+<!-- Active -->
+
+<!-- Custom Styles -->
+{% block custom_css %}
+
+<!-- Custom -->
+<link rel="stylesheet" href="{% static 'nlp/css/custom/extract.css' %}">
+<!-- Annotation -->
+<link rel="stylesheet" href="{% static 'nlp/css/custom/annotation.css' %}">
+
+{% endblock %}
+<!-- Custom Styles -->
+
+<!-- Page Layout -->
+{% block page_layout %}
+<div class="container page-container">
+
+  <!-- Menu -->
+  <div class="row row-menu m-0">
+    <div class="col-12 col-menu p-0">
+
+      <!-- Language -->
+      <button
+        class="btn dropdown-toggle stress-color object-bgcolor {{ contrast|default:'moon' }} px-3 py-2 my-0 ml-3 ml-sm-0 mr-0"
+        type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" style="font-size: 1rem;"><span
+          class="d-none d-sm-inline-block mr-1">源语言</span><span
+          class="font-weight-bold">英文</span></button>
+      <div class="dropdown-menu">
+        <button class="dropdown-item" type="button">英文</button>
+        <button class="dropdown-item" type="button" disabled>中文（暂不支持）</button>
+      </div>
+      <!-- Language -->
+
+    </div>
+  </div>
+  <!-- Menu -->
+
+  <!-- Tab -->
+  <div class="row row-tab mt-3 mt-sm-4">
+
+    <!-- Left Tab -->
+    <div class="col-12 col-lg-6 col-tab">
+      <div
+        class="z-depth-1 rounded object-bgcolor {{ contrast|default:'moon' }}"
+        id="left_tab">
+
+        <!-- Search -->
+        <button type="button"
+          class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
+          id="extract_button" onclick="trigger_extract()">
+          <span>开始抽取</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <!-- Search -->
+
+        <!-- Nav -->
+        <ul class="nav nav-tabs headup-bgcolor {{ contrast|default:'moon' }}"
+          id="left_nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
+              id="tab_nav_text" data-toggle="tab" href="#tab_pane_text"
+              role="tab">文字</a>
+          </li>
+        </ul>
+        <!-- Nav -->
+
+        <!-- Pane -->
+        <div class="tab-content" id="left_pane">
+
+          <!-- Content Text -->
+          <div class="tab-pane fade show active" id="tab_pane_text"
+            role="tabpanel" aria-labelledby="tab_nav_text">
+
+            <!-- Textarea -->
+            {% csrf_token %}
+            <div class="pane-body pt-0 px-0 pb-5" id="left_text_container">
+              <textarea
+                class="form-control stress-color object-bgcolor {{ contrast|default:'moon' }} border-0 shadow-none h-100 pt-3 px-3 pb-0"
+                id="left_text_area" maxlength="5000" style="resize: none;"
+                autofocus></textarea>
+            </div>
+            <!-- Textarea -->
+
+            <!-- Placeholder -->
+            <div class="pane-placeholder" id="left_text_place">
+              <div class="placeholder-title">在此输入以抽取。</div>
+              <div class="placeholder-note">
+                <p>点击<code>抽取</code>按钮来提交输入文本。</p>
+                <p>
+                  点击<code>上传</code>按钮来上传&thinsp;.txt&thinsp;,&thinsp;.docx&thinsp;或&thinsp;.pptx&thinsp;文件。
+                </p>
+                <p>或者<code>拖拽</code>本机文档到本页。</p>
+              </div>
+            </div>
+            <!-- Placeholder -->
+
+            <!-- Upload -->
+            <div class="pane-widget" id="left_text_upload">
+              <button type="button"
+                class="btn btn-link stress-color {{ contrast|default:'moon' }} p-0 m-0"
+                id="upload_button">
+                <i class="fas fa-arrow-up"></i>
+                <span>上传文档</span>
+              </button>
+            </div>
+            {% csrf_token %}
+            <input type="file" id="upload_input" accept=".txt,.docx,.pptx"
+              style="display: none;">
+            <!-- Upload -->
+
+            <!-- Statistic -->
+            <div class="pane-widget stress-color {{ contrast|default:'moon' }}"
+              id="left_text_stat">
+              <span id="left_text_stat_curr">0</span>
+              <span>/</span>
+              <span>5000</span>
+            </div>
+            <!-- Statistic -->
+
+            <!-- Mask -->
+            <div
+              class="pane-mask mask-drag stress-color object-bgcolor {{ contrast|default:'moon' }} user-select-none rounded-bottom"
+              id="mask_extract_drag">
+              <div class="flex-column flex-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Waiting...</span>
+                </div>
+                <h6 class="mx-3 mt-5">将文件拖放到本页</h6>
+              </div>
+            </div>
+            <!-- Mask -->
+
+          </div>
+          <!-- Content Text -->
+
+        </div>
+        <!-- Pane -->
+
+      </div>
+    </div>
+    <!-- Left Tab -->
+
+    <!-- Right Tab -->
+    <div class="col-12 col-lg-6 col-tab mt-4 mt-lg-0">
+      <div
+        class="z-depth-1 rounded object-bgcolor {{ contrast|default:'moon' }}"
+        id="right_tab">
+
+        <!-- Export Button -->
+        <button type="button"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          id="export_button">
+          导出结果
+          <i class="fas fa-share"></i>
+        </button>
+        <!-- Export Button -->
+
+        <!-- Nav -->
+        <ul class="nav nav-tabs headup-bgcolor {{ contrast|default:'moon' }}"
+          id="right_nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
+              id="tab_nav_result" data-toggle="tab" href="#tab_pane_result"
+              role="tab">结果</a>
+          </li>
+        </ul>
+        <!-- Nav -->
+
+        <!-- Pane -->
+        <div class="tab-content" id="right_pane">
+
+          <!-- Result -->
+          <div class="tab-pane fade show active" id="tab_pane_result"
+            role="tabpanel" aria-labelledby="tab_nav_result">
+
+            <!-- Render Button -->
+            <button type="button" class="btn btn-sm tab-button render-button object-color stress-bgcolor {{ contrast|default:'moon' }} px-3 py-1 m-0"
+              id="render_result_button" style="display: none;" onclick="_re_render_result()">
+              重新渲染
+              <i class="fas fa-poll-h ml-1"></i>
+            </button>
+            <!-- Render Button -->
+
+            <!-- Showcase -->
+            <div class="pane-body" id="right_result_container" data-simplebar>
+              <div
+                class="annot-showcase stress-color {{ contrast|default:'moon' }}"
+                id="right_result_area">
+              </div>
+            </div>
+            <!-- Showcase -->
+
+            <!-- Placeholder -->
+            <div class="pane-placeholder" id="right_result_place">
+              <div class="placeholder-title">此处显示抽取结果。</div>
+              <div class="placeholder-note">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的抽取结果。</p>
+              </div>
+            </div>
+            <!-- Placeholder -->
+
+            <!-- Mask -->
+            <div
+              class="pane-mask mask-wait stress-color object-bgcolor {{ contrast|default:'moon' }} user-select-none rounded-bottom"
+              id="mask_result_wait">
+              <div class="flex-column flex-center">
+                <div class="spinner-grow" role="status">
+                  <span class="sr-only">Waiting...</span>
+                </div>
+                <h6 class="mx-3 mt-5">请耐心等待</h6>
+              </div>
+            </div>
+            <!-- Mask -->
+
+          </div>
+          <!-- Result -->
+
+        </div>
+        <!-- Pane -->
+
+      </div>
+    </div>
+    <!-- Right Tab -->
+
+  </div>
+  <!-- Tab -->
+
+</div>
+{% endblock %}
+<!-- Page Layout -->
+
+<!-- Page Intro -->
+{% block page_intro_img %}
+<img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
+  alt="Information Extraction">
+{% endblock %}
+
+{% block page_intro_title %}
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Information
+  Extraction</h6>
+{% endblock %}
+
+{% block page_intro_detail %}
+<h4 class="h4 mb-4">信息抽取</h4>
+<p class="font-weight-normal">
+  信息是指从非结构化或半结构化文档中提取结构化信息的技术，包含两部分：命名实体识别和关系抽取。</p>
+<p class="font-weight-normal">
+  命名实体识别（NER）的任务是在文本中查找每个提及的命名实体并标记其类型。关系抽取（RE）的任务是查找和分类文本实体之间的语义关系，通常是二元关系。</p>
+{% endblock %}
+<!-- Page Intro -->
+
+
+<!-- Custom Scripts -->
+{% block custom_js %}
+
+<!-- Document -->
+<script type="text/javascript" src="{% static 'nlp/js/document.js' %}"></script>
+<script type="text/javascript" src="{% static 'nlp/js/docxtemplater.min.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'nlp/js/pizzip.min.js' %}">
+</script>
+<!-- Drag & Drop -->
+<script type="text/javascript" src="{% static 'nlp/js/dragdrop.js' %}"></script>
+<!-- Custom -->
+<script type="text/javascript" src="{% static 'nlp/js/custom/extract.js' %}"></script>
+<!-- Annotation -->
+<script type="text/javascript" src="{% static 'nlp/js/custom/annotation.js' %}">
+</script>
+
+{% endblock %}
+<!-- Custom Scripts -->
