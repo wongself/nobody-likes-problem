@@ -1,5 +1,8 @@
 # nobody-likes-problem
 
+> 很抱歉，本项目里的文件夹`nobody-likes-problem/nlp/applicaitons`中的`applicaitons`拼写错误，请将错就错。
+> ฅ(ﾐ・ﻌ・ﾐ)ฅ
+
 ## 安装部署
 
 ### 展示网址
