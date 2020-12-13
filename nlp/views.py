@@ -92,7 +92,7 @@ def query_template(request):  # 复制该函数，粘贴在该函数之上，并
 
         # Query
         try:
-            jresponse = requests.post('http://localhost:2345/query_template',
+            jresponse = requests.post('http://localhost:2345/query_server',
                                       data={'source': source})
             jtemplate = jresponse.json()['jtemplate']
         except Exception:
