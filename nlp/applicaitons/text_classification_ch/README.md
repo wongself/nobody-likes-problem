@@ -24,7 +24,7 @@
 ```
 
 ## 项目开发
-中文新闻分类模块
+
 ### 项目调试
 1. 位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
 
