@@ -43,7 +43,7 @@
 4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/blob/main/nlp/applicaitons/spert/README.md) 文件。
 
 > 👇中文新闻分类模块
-5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./THUCNews`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/tree/ZJ/nlp/applicaitons/text_classification_ch/README.md) 文件。
+5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/tree/ZJ/nlp/applicaitons/text_classification_ch/README.md) 文件。
 
 ## 项目开发
 
