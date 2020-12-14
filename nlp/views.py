@@ -68,7 +68,7 @@ def query_template(request):  # 复制该函数，粘贴在该函数之上，并
         try:
             jresponse = requests.post('http://localhost:2345/query_server',
                                       data={'source': source})
-            jtemplate = jresponse.json()['jtemplate']
+            jtemplate = jresponse.json()['jserver']
         except Exception:
             jtemplate = '__ERROR__'
             traceback.print_exc()
