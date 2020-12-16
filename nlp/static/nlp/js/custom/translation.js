@@ -1,5 +1,5 @@
 var max_length = 5000
-var pre_template_result = null
+var pre_translation_result = null
 
 $(function() {
   // Initialization
@@ -12,7 +12,7 @@ $(function() {
   $(document).on('keydown', function(e) {
     // Template
     if (e.key == 'Enter' && e.ctrlKey) {
-      $('#template_button').click()
+      $('#translation_button').click()
     }
   })
 
@@ -23,11 +23,11 @@ $(function() {
 
   // Export
   $('#export_button').on('click', function() {
-    export_result(pre_template_result)
+    export_result(pre_translation_result)
   })
 })
 
-// Translation
+// Template
 function trigger_translation() {
   var $src = $('#left_text_area')
   var src = $src.val()

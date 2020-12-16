@@ -156,3 +156,4 @@ dmypy.json
 /data
 /static
 .vscode
+model*.pt

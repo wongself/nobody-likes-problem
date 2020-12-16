@@ -47,7 +47,7 @@ function ajax_src_submit(source, qtype) {
             flag = parse_extract(ret['jextract'])
             retry_ajax_submit(flag, this)
             break
-          case 'translation':
+          case 'translation': 
             flag = parse_translation(ret['jtranslation'])
             retry_ajax_submit(flag, this)
             break
@@ -87,10 +87,11 @@ function disable_operation(qtype) {
       $('#upload_button').html('<div \
         class="spinner-border spinner-border-sm mr-1" \
         role="status" aria-hidden="true"></div>' + '上传中...').addClass('disabled')
-    case 'translation':
+    case 'translation': 
+      // Button
       $('#translation_button').html('<div \
-       class="spinner-border spinner-border-sm mr-1" \
-       role="status" aria-hidden="true"></div>' + '翻译中...').addClass('disabled')
+        class="spinner-border spinner-border-sm mr-1" \
+        role="status" aria-hidden="true"></div>' + '翻译中...').addClass('disabled')
     case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
       $('#template_button').html('<div \

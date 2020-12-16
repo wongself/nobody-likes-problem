@@ -7,7 +7,7 @@
 
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
-- [你的模块测试: 2345](http://101.124.42.4:2345)
+- [翻译模块测试: 2685](http://101.124.42.4:2685)
 
 ### 环境依赖
 
@@ -27,10 +27,9 @@
 - tqdm (tested with version 4.50.2)
 - transformers 2.2.0+ (tested with version 3.4.0)
 
-#### 你的模块写在这里
-- 你的模块写在这里
-- 你的模块写在这里
-- 你的模块写在这里
+#### 翻译模块
+- nltk (tested with version TODO)
+- pytorch (tested with version TODO)
 
 ### 环境安装
 
@@ -41,8 +40,13 @@
 > 👇信息抽取模块
 4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/blob/main/nlp/applicaitons/spert/README.md) 文件。
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
+> 👇翻译模块
+5. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考翻译模块的[README](./nlp/applicaitons/translation/README.md)
+```
+链接：https://pan.baidu.com/s/14iBXZ0CG46QvEbWoMXk2Ww 
+提取码：41gy 
+复制这段内容后打开百度网盘手机App，操作更方便哦
+```
 
 ## 项目开发
 
@@ -55,8 +59,8 @@
 > 👇信息抽取模块
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
+> 👇翻译模块
+5. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2685`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
 
 ### 项目维护
 
@@ -67,8 +71,8 @@
 > 👇信息抽取模块
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块。~~ 信息抽取模块已经在端口`2334`启动成功。
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
+> 👇翻译模块
+5. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
 
 ### 如何构建你的服务
 1. 为了创建类似于信息抽取模块（已占用端口号`2334`）的服务，以便于 Django 框架中的视图层向创建的服务发送请求并接收响应，你可以参考`nobody-likes-problem/nlp/applicaitons/server_template`中的文件格式，自行在`nobody-likes-problem/nlp/applicaitons`中创建一个新的文件夹（例如`/dialog`），并参考`/server_template`中的`server.py`文件，将其改写为你需要的形式。

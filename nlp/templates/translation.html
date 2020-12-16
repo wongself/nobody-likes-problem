@@ -11,7 +11,7 @@ active
 {% block custom_css %}
 
 <!-- Custom -->
-<link rel="stylesheet" href="{% static 'nlp/css/translation.css' %}">
+<link rel="stylesheet" href="{% static 'nlp/css/custom/translation.css' %}">
 
 {% endblock %}
 <!-- Custom Styles -->
@@ -19,6 +19,27 @@ active
 <!-- Page Layout -->
 {% block page_layout %}
 <div class="container page-container">
+
+  <!-- Menu -->
+  <div class="row row-menu m-0">
+    <div class="col-12 col-menu p-0">
+
+      <!-- Language -->
+      <button
+        class="btn dropdown-toggle stress-color object-bgcolor {{ contrast|default:'moon' }} px-3 py-2 my-0 ml-3 ml-sm-0 mr-0"
+        type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" style="font-size: 1rem;"><span
+          class="d-none d-sm-inline-block mr-1">源语言</span><span
+          class="font-weight-bold">英文</span></button>
+      <div class="dropdown-menu">
+        <button class="dropdown-item" type="button">英文</button>
+        <button class="dropdown-item" type="button" disabled>中文（暂不支持）</button>
+      </div>
+      <!-- Language -->
+
+    </div>
+  </div>
+  <!-- Menu -->
 
   <!-- Tab -->
   <div class="row row-tab mt-3 mt-sm-4">
@@ -29,14 +50,14 @@ active
         class="z-depth-1 rounded object-bgcolor {{ contrast|default:'moon' }}"
         id="left_tab">
 
-        <!-- Translation -->
+        <!-- Search -->
         <button type="button"
           class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
           id="translation_button" onclick="trigger_translation()">
           <span>开始翻译</span>
           <i class="fas fa-arrow-right"></i>
         </button>
-        <!-- Translation -->
+        <!-- Search -->
 
         <!-- Nav -->
         <ul class="nav nav-tabs headup-bgcolor {{ contrast|default:'moon' }}"
@@ -44,7 +65,7 @@ active
           <li class="nav-item">
             <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
               id="tab_nav_text" data-toggle="tab" href="#tab_pane_text"
-              role="tab">英文</a>
+              role="tab">文字</a>
           </li>
         </ul>
         <!-- Nav -->
@@ -68,9 +89,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入以翻译。</div>
+              <div class="placeholder-title">在此输入以搜索。</div>
               <div class="placeholder-note">
-                <p>点击<code>翻译</code>按钮来提交输入文本。</p>
+                <p>点击<code>搜索</code>按钮来提交输入文本。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -115,7 +136,7 @@ active
           <li class="nav-item">
             <a class="nav-link stress-color object-bgcolor {{ contrast|default:'moon' }} active"
               id="tab_nav_result" data-toggle="tab" href="#tab_pane_result"
-              role="tab">中文</a>
+              role="tab">结果</a>
           </li>
         </ul>
         <!-- Nav -->
@@ -138,9 +159,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示翻译结果。</div>
+              <div class="placeholder-title">此处显示搜索结果。</div>
               <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的翻译结果。</p>
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -178,19 +199,19 @@ active
 <!-- Page Intro -->
 {% block page_intro_img %}
 <img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
-  alt="Machine Translation">
+  alt="Translation">
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Machine Translation</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Translation</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
 <h4 class="h4 mb-4">机器翻译</h4>
 <p class="font-weight-normal">
-  机器翻译（英语：Machine Translation，经常简写为MT，简称机译或机翻）属于计算语言学的范畴，其研究借由计算机程序将文字或演说从一种自然语言翻译成另一种自然语言。</p>
+  机器翻译，又称为自动翻译，是利用计算机将一种自然语言(源语言)转换为另一种自然语言(目标语言)的过程。它是计算语言学的一个分支，是人工智能的终极目标之一，具有重要的科学研究价值。</p>
 <p class="font-weight-normal">
-  简单来说，机器翻译是通过将一个自然语言的字辞取代成另一个自然语言的字辞。借由使用语料库的技术，可达成更加复杂的自动翻译，包含可更佳的处理不同的文法结构、辞汇辨识、惯用语的对应等。</p>
+  同时，机器翻译又具有重要的实用价值。随着经济全球化及互联网的飞速发展，机器翻译技术在促进政治、经济、文化交流等方面起到越来越重要的作用。</p>
 {% endblock %}
 <!-- Page Intro -->
 
@@ -199,7 +220,7 @@ active
 {% block custom_js %}
 
 <!-- Custom -->
-<script type="text/javascript" src="{% static 'nlp/js/translation.js' %}"></script>
+<script type="text/javascript" src="{% static 'nlp/js/custom/translation.js' %}"></script>
 
 {% endblock %}
 <!-- Custom Scripts -->
