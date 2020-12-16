@@ -10,7 +10,7 @@
 - torch (tested with version 1.6.0)
 
 ### 环境安装
-1. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考翻译模块的[README](./nlp/applicaitons/translation/README.md)
+1. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。
 ```
 链接：https://pan.baidu.com/s/14iBXZ0CG46QvEbWoMXk2Ww 
 提取码：41gy 
