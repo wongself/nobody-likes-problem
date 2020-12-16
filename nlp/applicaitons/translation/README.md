@@ -3,7 +3,7 @@
 ## 安装部署
 
 ### 模块测试
-- [翻译模块测试: 2685](http://101.124.42.4:2685)
+- [翻译模块测试: 2377](http://101.124.42.4:2377)
 
 ### 环境依赖
 - nltk (tested with version 3.5)
@@ -20,7 +20,7 @@
 ## 项目开发
 
 ### 项目调试
-1. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2685`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
+1. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2377`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
 
 ### 项目维护
 1. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
