@@ -22,11 +22,12 @@ def hello_world():
 def query_server():
     if request.method == 'POST':
         source = request.form['source']
+        # 你可以不需要分词
         jsentences = nltk.sent_tokenize(source)
         jtokens = [nltk.word_tokenize(jsentence) for jsentence in jsentences]
 
-        # 分词完之后，你要做的在这里
-        jserver = jtokens
+        # 分词完之后，你要做的在这里，若最终前端无任何结果，可能是因为JSON格式的问题
+        jserver = 'Nobody Likes Problem'
 
         return jsonify({'jserver': jserver})
     return jsonify({'jserver': ''})
