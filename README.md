@@ -11,6 +11,7 @@
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
 - [翻译模块测试: 2377](http://101.124.42.4:2377)
+- [你的模块测试: 2345](http://101.124.42.4:2345)
 
 ### 环境依赖
 
@@ -33,6 +34,11 @@
 #### 翻译模块
 - nltk (tested with version TODO)
 - pytorch (tested with version TODO)
+
+#### 你的模块写在这里
+- 你的模块写在这里
+- 你的模块写在这里
+- 你的模块写在这里
 
 ### 环境安装
 
@@ -65,6 +71,9 @@
 > 👇翻译模块
 5. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2377`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
 
+> 👇你的模块写在这里
+5. 你的模块写在这里
+
 ### 项目维护
 
 1. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`和`python manage.py collectstatic --no-input`来生成网站运行所需的必要文件。
@@ -76,6 +85,9 @@
 
 > 👇翻译模块
 5. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
+
+> 👇你的模块写在这里
+5. 你的模块写在这里
 
 ### 如何构建你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
