@@ -17,7 +17,7 @@ def page_template(request):  # 复制该函数，粘贴在该函数之上，并�
     return render(request, './template.html', context)
 
 
-def page_not_found(request, exception, translation_name=''):
+def page_not_found(request, exception, template_name=''):
     return redirect(page_extract)
 
 
