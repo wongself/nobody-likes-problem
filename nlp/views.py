@@ -71,7 +71,7 @@ def query_text_classification_ch(request):
 
         # Query
         try:
-            jresponse = requests.post('http://localhost:2335/query_server',
+            jresponse = requests.post('http://localhost:2336/query_server',
                                       data={'source': source})
             jtext_classification_ch = jresponse.json()['jserver']
         except Exception:

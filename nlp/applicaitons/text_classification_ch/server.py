@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-import nltk
 from waitress import serve
 
 import os
@@ -12,9 +11,11 @@ from utils_for_test import build_dataset, build_iterator, get_time_dif
 app = Flask(__name__)
 app.config.from_object('configure')
 
+
 @app.route('/')
 def hello_world():
     return 'Nobody Likes Problem'
+
 
 def test(config, model, test_iter):
     # test
@@ -33,7 +34,6 @@ def test(config, model, test_iter):
 
 def evaluate(config, model, data_iter, test=False):
     model.eval()
-    loss_total = 0
     predict_all = np.array([], dtype=int)
     with torch.no_grad():
         for texts, labels in data_iter:
@@ -43,6 +43,7 @@ def evaluate(config, model, data_iter, test=False):
 
     return predict_all[0]
 
+
 @app.route('/query_server', methods=['POST'])
 def query_server():
     if request.method == 'POST':
@@ -51,12 +52,12 @@ def query_server():
         test_path = os.path.join(os.getcwd(), 'THUCNews/data/test.txt')
         print(os.getcwd(), test_path)
         f = open(test_path, 'w', encoding='utf-8')
-        f.write(str(source)+'\t1\n')
+        f.write(str(source) + '\t1\n')
         f.close()
 
         # 开始处理
         dataset = 'THUCNews'  # 数据集+
-        model_name = 'ERNIE' 
+        model_name = 'ERNIE'
         x = import_module('models.' + model_name)
         config = x.Config(dataset)
 
@@ -68,7 +69,8 @@ def query_server():
         print("Time usage:", time_dif)
 
         model = x.Model(config)
-        model.load_state_dict(torch.load(config.save_path, map_location='cpu')) # , map_location={'cuda:0'}
+        model.load_state_dict(torch.load(
+            config.save_path, map_location='cpu'))  # , map_location={'cuda:0'}
         model.eval()
         model = model.to(config.device)
         jserver = test(config, model, test_iter)
@@ -79,5 +81,5 @@ def query_server():
 
 
 if __name__ == "__main__":
-    # app.run(host='0.0.0.0', port=2335, debug=False)
-    serve(app, host="0.0.0.0", port=2335)  # 请在2335~2400之间选择一个端口
+    # app.run(host='0.0.0.0', port=2336, debug=False)
+    serve(app, host="0.0.0.0", port=2336)  # 请在2335~2400之间选择一个端口
