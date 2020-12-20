@@ -10,6 +10,7 @@
 
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
+- [中文新闻分类模块测试: 2335](http://101.124.42.4:2335)
 - [你的模块测试: 2345](http://101.124.42.4:2345)
 
 ### 环境依赖
@@ -30,6 +31,12 @@
 - tqdm (tested with version 4.50.2)
 - transformers 2.2.0+ (tested with version 3.4.0)
 
+#### 中文新闻分类模块
+- numpy (tested with version 1.19.2)
+- torch (tested with version 1.6.0)
+- tqdm (tested with version 4.50.2)
+- pytorch_pretrained_bert (tested with version 0.6.2)
+
 #### 你的模块写在这里
 - 你的模块写在这里
 - 你的模块写在这里
@@ -43,6 +50,9 @@
 
 > 👇信息抽取模块
 4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/blob/main/nlp/applicaitons/spert/README.md) 文件。
+
+> 👇中文新闻分类模块
+5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/tree/ZJ/nlp/applicaitons/text_classification_ch/README.md) 文件。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -58,6 +68,9 @@
 > 👇信息抽取模块
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
 
+> 👇中文新闻分类模块
+5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2335`启动成功。
+
 > 👇你的模块写在这里
 5. 你的模块写在这里
 
@@ -69,6 +82,9 @@
 
 > 👇信息抽取模块
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块。~~ 信息抽取模块已经在端口`2334`启动成功。
+
+> 👇中文新闻分类模块
+5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2335`启动成功。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
