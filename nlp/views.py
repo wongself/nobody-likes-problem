@@ -12,7 +12,18 @@ def page_mrc(request):
     context = session_contrast(request)
     return render(request, './mrc.html', context)
 
-def page_template(request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
+def page_translation(request):
+    context = session_contrast(request)
+    return render(request, './translation.html', context)
+
+
+def page_text_classification_ch(request):
+    context = session_contrast(request)
+    return render(request, './text_classification_ch.html', context)
+
+
+def page_template(
+        request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
     context = session_contrast(request)
     return render(request, './template.html', context)
 
@@ -79,7 +90,52 @@ def query_mrc(request):
     return render(request, './mrc.html')
 
 
-def query_template(request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
+def query_text_classification_ch(request):
+    if request.is_ajax() and request.method == 'POST':
+        # Fetch Source
+        source = request.POST.get('source', False)
+
+        if not source:
+            return JsonResponse({'jtext_classification_ch': '__ERROR__'})
+
+        # Query
+        try:
+            jresponse = requests.post('http://localhost:2336/query_server',
+                                      data={'source': source})
+            jtext_classification_ch = jresponse.json()['jserver']
+        except Exception:
+            jtext_classification_ch = '__ERROR__'
+            traceback.print_exc()
+
+        return JsonResponse(
+            {'jtext_classification_ch': jtext_classification_ch})
+    return render(request, './text_classification_ch.html')
+
+
+def query_translation(request):
+    if request.is_ajax() and request.method == 'POST':
+        # Fetch Source
+        source = request.POST.get('source', False)
+
+        if not source:
+            return JsonResponse({'jtranslation': '__ERROR__'})
+
+        # Query
+        try:
+            jresponse = requests.post(
+                'http://localhost:2337/query_translation',
+                data={'source': source})
+            jtranslation = jresponse.json()['jserver']
+        except Exception:
+            jtranslation = '__ERROR__'
+            traceback.print_exc()
+
+        return JsonResponse({'jtranslation': jtranslation})
+    return render(request, './translation.html')
+
+
+# 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
+def query_template(request):
     if request.is_ajax() and request.method == 'POST':
         # Fetch Source
         source = request.POST.get('source', False)
@@ -91,7 +147,7 @@ def query_template(request):  # 复制该函数，粘贴在该函数之上，并
         try:
             jresponse = requests.post('http://localhost:2345/query_server',
                                       data={'source': source})
-            jtemplate = jresponse.json()['jtemplate']
+            jtemplate = jresponse.json()['jserver']
         except Exception:
             jtemplate = '__ERROR__'
             traceback.print_exc()

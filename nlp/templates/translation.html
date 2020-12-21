@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Active -->
-{% block nav_template %}
+{% block nav_translation %}
 active
 {% endblock %}
 <!-- Active -->
@@ -11,7 +11,7 @@ active
 {% block custom_css %}
 
 <!-- Custom -->
-<link rel="stylesheet" href="{% static 'nlp/css/custom/template.css' %}">
+<link rel="stylesheet" href="{% static 'nlp/css/custom/translation.css' %}">
 
 {% endblock %}
 <!-- Custom Styles -->
@@ -53,8 +53,8 @@ active
         <!-- Search -->
         <button type="button"
           class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
-          id="template_button" onclick="trigger_template()">
-          <span>开始搜索</span>
+          id="translation_button" onclick="trigger_translation()">
+          <span>开始翻译</span>
           <i class="fas fa-arrow-right"></i>
         </button>
         <!-- Search -->
@@ -199,19 +199,19 @@ active
 <!-- Page Intro -->
 {% block page_intro_img %}
 <img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
-  alt="Template">
+  alt="Translation">
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Template</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Translation</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
-<h4 class="h4 mb-4">模板</h4>
+<h4 class="h4 mb-4">机器翻译</h4>
 <p class="font-weight-normal">
-  模块简略介绍</p>
+  机器翻译，又称为自动翻译，是利用计算机将一种自然语言(源语言)转换为另一种自然语言(目标语言)的过程。它是计算语言学的一个分支，是人工智能的终极目标之一，具有重要的科学研究价值。</p>
 <p class="font-weight-normal">
-  模块详细介绍</p>
+  同时，机器翻译又具有重要的实用价值。随着经济全球化及互联网的飞速发展，机器翻译技术在促进政治、经济、文化交流等方面起到越来越重要的作用。</p>
 {% endblock %}
 <!-- Page Intro -->
 
@@ -220,8 +220,7 @@ active
 {% block custom_js %}
 
 <!-- Custom -->
-<script type="text/javascript" src="{% static 'nlp/js/custom/template.js' %}">
-</script>
+<script type="text/javascript" src="{% static 'nlp/js/custom/translation.js' %}"></script>
 
 {% endblock %}
 <!-- Custom Scripts -->
