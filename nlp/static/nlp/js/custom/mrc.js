@@ -41,6 +41,11 @@ function trigger_mrc() {
     return
   }
 
+  if (src.indexOf('\n') == src.length - 1 || src.indexOf('\n') == -1 || src.slice(0, src.indexOf('\n')).length < 0 || src.slice(src.indexOf('\n') + 1).length < 0) {
+    raise_modal_error('参照下方描述来输入问题和文章！')
+    return
+  }
+
   ajax_src_submit(src, 'mrc')
 }
 

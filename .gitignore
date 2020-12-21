@@ -161,7 +161,7 @@ dmypy.json
 /nlp/applicaitons/text_classification_ch/THUCNews/
 
 # Translation
-model*.pt
+/nlp/applicaitons/translation/save/
 
 # MRC
 /nlp/applicaitons/mrc/data

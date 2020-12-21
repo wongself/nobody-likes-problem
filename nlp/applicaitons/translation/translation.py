@@ -593,7 +593,7 @@ def test(string):
 							H_NUM,
 							DROPOUT
 						)
-		model.load_state_dict(torch.load(SAVE_FILE))
+		model.load_state_dict(torch.load(SAVE_FILE, map_location='cpu'))
 
 		# string = input() #输入
 		en = []
@@ -649,7 +649,7 @@ def test(string):
 # 					H_NUM,
 # 					DROPOUT
 # 				)
-# model.load_state_dict(torch.load(SAVE_FILE))
+# model.load_state_dict(torch.load(SAVE_FILE, map_location='cpu'))
 
 # 开始预测
 # print(">>>>>>> start evaluate")
