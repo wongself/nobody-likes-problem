@@ -89,9 +89,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入文本以进行文本分类。</div>
+              <div class="placeholder-title">在此输入以分类。</div>
               <div class="placeholder-note">
-                <p>点击<code>开始分类</code>按钮来提交输入文本。</p>
+                <p>点击<code>分类</code>按钮来提交输入文本。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -123,7 +123,7 @@ active
 
         <!-- Export Button -->
         <button type="button"
-          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0 d-none"
           id="export_button">
           导出结果
           <i class="fas fa-share"></i>
@@ -160,8 +160,8 @@ active
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
               <div class="placeholder-title">此处显示分类结果。</div>
-              <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
+              <div class="placeholder-note d-none">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的分类结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -203,15 +203,15 @@ active
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>text_classification_ch</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>News Classification</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
-<h4 class="h4 mb-4">模板</h4>
+<h4 class="h4 mb-4">新闻分类</h4>
 <p class="font-weight-normal">
-  模块简略介绍</p>
+  利用文本自动分类技术对网络新闻进行自动分类，包含金融、房地产、股票、教育、科学、社会、政治、体育、游戏、娱乐等类别</p>
 <p class="font-weight-normal">
-  模块详细介绍</p>
+  输入一段网络新闻的标题文本，点击分类按钮后即可得到对应的类别。</p>
 {% endblock %}
 <!-- Page Intro -->
 

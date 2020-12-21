@@ -54,7 +54,7 @@ active
         <button type="button"
           class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
           id="mrc_button" onclick="trigger_mrc()">
-          <span>开始搜索</span>
+          <span>开始阅读</span>
           <i class="fas fa-arrow-right"></i>
         </button>
         <!-- Search -->
@@ -89,9 +89,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入以搜索。</div>
+              <div class="placeholder-title">在此输入以阅读。</div>
               <div class="placeholder-note">
-                <p>点击<code>搜索</code>按钮来提交输入文本。</p>
+                <p>点击<code>阅读</code>按钮来提交输入文本。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -123,7 +123,7 @@ active
 
         <!-- Export Button -->
         <button type="button"
-          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0 d-none"
           id="export_button">
           导出结果
           <i class="fas fa-share"></i>
@@ -159,9 +159,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示搜索结果。</div>
-              <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
+              <div class="placeholder-title">此处显示阅读结果。</div>
+              <div class="placeholder-note d-none">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的阅读结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -203,15 +203,15 @@ active
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>MRC</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Machine Reading Comprehension</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
-<h4 class="h4 mb-4">模板</h4>
+<h4 class="h4 mb-4">阅读理解</h4>
 <p class="font-weight-normal">
-  模块简略介绍</p>
+  机器阅读理解是指对文本的自动、无监督理解，目的是让让计算机具备通过文本数据获取知识和回答问题的能力。</p>
 <p class="font-weight-normal">
-  模块详细介绍</p>
+  先输入一段合法的问题，另起一行，再输入一篇该问题所对应的文章，超过5000个字符的部分将被截断，点击阅读按钮后即可得到对应的答案。</p>
 {% endblock %}
 <!-- Page Intro -->
 
