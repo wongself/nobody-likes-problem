@@ -111,8 +111,8 @@ def query_translation(request):
     return render(request, './translation.html')
 
 
-def query_template(
-        request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
+# 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
+def query_template(request):
     if request.is_ajax() and request.method == 'POST':
         # Fetch Source
         source = request.POST.get('source', False)
