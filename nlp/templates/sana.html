@@ -30,10 +30,10 @@ active
         type="button" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false" style="font-size: 1rem;"><span
           class="d-none d-sm-inline-block mr-1">源语言</span><span
-          class="font-weight-bold">英文</span></button>
+          class="font-weight-bold">中文</span></button>
       <div class="dropdown-menu">
-        <button class="dropdown-item" type="button">英文</button>
-        <button class="dropdown-item" type="button" disabled>中文（暂不支持）</button>
+        <button class="dropdown-item" type="button">中文</button>
+        <button class="dropdown-item" type="button" disabled>英文（暂不支持）</button>
       </div>
       <!-- Language -->
 
@@ -89,7 +89,7 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入以进行情感分析。</div>
+              <div class="placeholder-title">在此输入以分析。</div>
               <div class="placeholder-note">
                 <p>点击<code>分析</code>按钮来提交输入文本。</p>
               </div>
@@ -123,7 +123,7 @@ active
 
         <!-- Export Button -->
         <button type="button"
-          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0 d-none"
           id="export_button">
           导出结果
           <i class="fas fa-share"></i>
@@ -159,9 +159,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示情感分析结果。</div>
-              <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的情感分析结果。</p>
+              <div class="placeholder-title">此处显示分析结果。</div>
+              <div class="placeholder-note d-none">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的分析结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -203,15 +203,15 @@ active
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>sana</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Sentiment Analysis</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
 <h4 class="h4 mb-4">情感分析</h4>
 <p class="font-weight-normal">
-  模块简略介绍</p>
+  情感分析即文本倾向性分析，就是计算机判断人们的看法或评论是属于对事物的积极、消极或中性意见。</p>
 <p class="font-weight-normal">
-  模块详细介绍</p>
+  输入一篇合法的文字，超过5000个字符的部分将被截断，点击分析按钮后即可得到对应的情感分析结果。</p>
 {% endblock %}
 <!-- Page Intro -->
 
