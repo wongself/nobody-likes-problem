@@ -80,6 +80,6 @@ flags.DEFINE_boolean("fasttext", False, "Whether to use fasttext")
 config = flags.FLAGS
 config(sys.argv)
 # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device('cuda:0')
+device = torch.device('cpu')
 
 cudnn.enabled = False

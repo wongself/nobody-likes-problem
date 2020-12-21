@@ -11,7 +11,7 @@
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
 - [中文新闻分类模块测试: 2336](http://101.124.42.4:2336)
-- [翻译模块测试: 2337](http://101.124.42.4:2337)
+- [机器翻译模块测试: 2337](http://101.124.42.4:2337)
 - [阅读理解模块测试: 2338](http://101.124.42.4:2338)
 - [服务模板测试: 2345](http://101.124.42.4:2345)
 
@@ -39,10 +39,16 @@
 - tqdm (tested with version 4.50.2)
 - pytorch_pretrained_bert (tested with version 0.6.2)
 
-#### 翻译模块
+#### 机器翻译模块
 - nltk (tested with version 3.5)
 - torch (tested with version 1.6.0)
 - dill (tested with version 0.3.3)
+
+#### 阅读理解模块
+- torch (tested with version 1.6.0)
+- absl (tested with version 0.11.0)
+- spacy (tested with version 2.3.5)
+- tqdm (tested with version 4.50.2)
 
 #### 你的模块写在这里
 - 你的模块写在这里
@@ -56,18 +62,21 @@
 3. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`来测试 Django 架构是否安装成功。
 
 > 👇信息抽取模块
-4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/blob/main/nlp/applicaitons/spert/README.md) 文件。
+4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/spert/README.md) 文件。
 
 > 👇中文新闻分类模块
-5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/tree/ZJ/nlp/applicaitons/text_classification_ch/README.md) 文件。
+5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/text_classification_ch/README.md) 文件。
 
-> 👇翻译模块
-6. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考翻译模块的[README](./nlp/applicaitons/translation/README.md)
+> 👇机器翻译模块
+6. 从网盘中下载机器翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考机器翻译模块的[README](./nlp/applicaitons/translation/README.md)
 ```
 链接：https://pan.baidu.com/s/14iBXZ0CG46QvEbWoMXk2Ww 
 提取码：41gy 
 复制这段内容后打开百度网盘手机App，操作更方便哦
 ```
+
+> 👇阅读理解模块
+7. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -84,10 +93,13 @@
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
 
 > 👇中文新闻分类模块
-5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
+5. ~~位于服务根目录，输入命令`python ./server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
-> 👇翻译模块
-6. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 翻译模块已经在端口`2337`启动成功。
+> 👇机器翻译模块
+6. ~~位于服务根目录，输入命令`python ./server.py`来启动机器翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 机器翻译模块已经在端口`2337`启动成功。
+
+> 👇阅读理解模块
+7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块，随后在浏览器中输入本机网址及端口`2338`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 阅读理解模块已经在端口`2338`启动成功。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -104,8 +116,11 @@
 > 👇中文新闻分类模块
 5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
-> 👇翻译模块
-6. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
+> 👇机器翻译模块
+6. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动机器翻译模块。~~ 机器翻译模块已经在端口`2337`启动成功。
+
+> 👇阅读理解模块
+7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块。~~ 阅读理解模块已经在端口`2338`启动成功。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里

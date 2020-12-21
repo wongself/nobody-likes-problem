@@ -14,7 +14,7 @@
 - transformers 2.2.0+ (tested with version 3.4.0)
 
 ### 环境安装
-1. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。
+1. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。
 2. 上一步仅限 V100 服务器用户操作。不过，可以手动创建如下`data`文件夹，并将其放置在项目根目录。其中，`datasets`文件夹请在[此处](http://lavis.cs.hs-rm.de/storage/spert/public/datasets/scierc/)下载，`models`文件夹请在[此处](http://lavis.cs.hs-rm.de/storage/spert/public/models/scierc/)。`log`文件夹为空文件夹，存放入信息抽取模块运行日志。
 
 ```

@@ -341,7 +341,7 @@ class Demo():
         with open(config.char_emb_file, "rb") as fh:
             char_mat = np.array(json.load(fh), dtype=np.float32)
         self.qa_model = QANet(word_mat,char_mat).to(device)
-        self.qa_model.load_state_dict(torch.load(config.save_dir+'/model.pt'))
+        self.qa_model.load_state_dict(torch.load(config.save_dir+'/model.pt', map_location='cpu'))
         self.config = config
     
     def predict(self,aritcle,question):
@@ -360,7 +360,7 @@ class Demo():
 
 def test_entry(config):
     fn = os.path.join(config.save_dir, "model.pt") 
-    model = torch.load(fn)  # , map_location={'cuda:1':'cuda:0'}
+    model = torch.load(fn, map_location='cpu')  # , map_location={'cuda:1':'cuda:0'}
     # ,map_location=device
     with open(config.test_eval_file, "r") as fh:
         dev_eval_file = json.load(fh)

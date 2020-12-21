@@ -25,7 +25,7 @@ def page_mrc(request):
 
 
 # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
-def page_template(request):  
+def page_template(request):
     context = session_contrast(request)
     return render(request, './template.html', context)
 
