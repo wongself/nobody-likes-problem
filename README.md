@@ -14,6 +14,7 @@
 - [机器翻译模块测试: 2337](http://101.124.42.4:2337)
 - [阅读理解模块测试: 2338](http://101.124.42.4:2338)
 - [服务模板测试: 2345](http://101.124.42.4:2345)
+- [情感分析模块测试: 2347](http://101.124.42.4:2347)
 
 ### 环境依赖
 
@@ -50,6 +51,10 @@
 - spacy (tested with version 2.3.5)
 - tqdm (tested with version 4.50.2)
 
+#### 情感分析模块
+- paddlepaddle (tested with version 1.8.5)
+- Senta (tested with version 2.0.0)
+
 #### 你的模块写在这里
 - 你的模块写在这里
 - 你的模块写在这里
@@ -74,13 +79,14 @@
 提取码：41gy 
 复制这段内容后打开百度网盘手机App，操作更方便哦
 ```
+> 👇情感分析模块
+7. 项目根目录首次运行`python ./server.py`即可安装，但需要等待一段时间直到senta文件夹下生成model_files目录
 
 > 👇阅读理解模块
-7. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
+8. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
-
 ## 项目开发
 
 ### 项目调试
@@ -100,6 +106,9 @@
 
 > 👇阅读理解模块
 7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块，随后在浏览器中输入本机网址及端口`2338`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 阅读理解模块已经在端口`2338`启动成功。
+
+>   情感分析模块
+8. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块，随后在浏览器中输入本机网址及端口`2339`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 情感分析模块已经在端口`2347`启动成功。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -121,6 +130,9 @@
 
 > 👇阅读理解模块
 7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块。~~ 阅读理解模块已经在端口`2338`启动成功。
+
+>  情感分析模块
+8. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
