@@ -8,16 +8,19 @@ def page_extract(request):
     context = session_contrast(request)
     return render(request, './extract.html', context)
 
-def page_translation(request): 
+
+def page_translation(request):
     context = session_contrast(request)
     return render(request, './translation.html', context)
 
-def page_text_classification_ch(request): 
+
+def page_text_classification_ch(request):
     context = session_contrast(request)
     return render(request, './text_classification_ch.html', context)
 
 
-def page_template(request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
+def page_template(
+        request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
     context = session_contrast(request)
     return render(request, './template.html', context)
 
@@ -81,7 +84,8 @@ def query_text_classification_ch(request):
             jtext_classification_ch = '__ERROR__'
             traceback.print_exc()
 
-        return JsonResponse({'jtext_classification_ch': jtext_classification_ch})
+        return JsonResponse(
+            {'jtext_classification_ch': jtext_classification_ch})
     return render(request, './text_classification_ch.html')
 
 
@@ -95,8 +99,9 @@ def query_translation(request):
 
         # Query
         try:
-            jresponse = requests.post('http://localhost:2377/query_translation',
-                                      data={'source': source})
+            jresponse = requests.post(
+                'http://localhost:2337/query_translation',
+                data={'source': source})
             jtranslation = jresponse.json()['jserver']
         except Exception:
             jtranslation = '__ERROR__'
@@ -106,7 +111,8 @@ def query_translation(request):
     return render(request, './translation.html')
 
 
-def query_template(request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
+def query_template(
+        request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
     if request.is_ajax() and request.method == 'POST':
         # Fetch Source
         source = request.POST.get('source', False)

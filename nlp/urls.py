@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.page_extract, name='home'),
     path('extract/', views.page_extract, name='extract'),
     path('text_classification_ch/', views.page_text_classification_ch, name='text_classification_ch'),
-    path('translation/', views.page_translation, name='translation'), 
+    path('translation/', views.page_translation, name='translation'),
     path('template/', views.page_template, name='template'),  # 复制该行，粘贴在该行之上，并将 template 字段进行重命名，就像 page_extract 一样。
 
     # query

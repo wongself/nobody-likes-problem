@@ -15,7 +15,8 @@ class Config(object):
         self.class_list = [x.strip() for x in open(
             dataset + '/data/class.txt').readlines()]                                # 类别名单
         self.save_path = dataset + '/saved_dict/' + self.model_name + '.ckpt'        # 模型训练结果
-        self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')   # 设备
+        # self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')   # 设备
+        self.device = torch.device('cpu')   # 设备
 
         self.require_improvement = 1000                                 # 若超过1000batch效果还没提升，则提前结束训练
         self.num_classes = len(self.class_list)                         # 类别数

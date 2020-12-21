@@ -18,7 +18,8 @@ active
 
 <!-- Page Layout -->
 {% block page_layout %}
-<input type="hidden" value="{{ contrast|default:'moon' }}" id="input_contrast" />
+<input type="hidden" value="{{ contrast|default:'moon' }}"
+  id="input_contrast" />
 <div class="container page-container">
 
   <!-- Menu -->
@@ -221,7 +222,8 @@ active
 {% block custom_js %}
 
 <!-- Custom -->
-<script type="text/javascript" src="{% static 'nlp/js/custom/template.js' %}"></script>
+<script type="text/javascript" src="{% static 'nlp/js/custom/template.js' %}">
+</script>
 
 {% endblock %}
 <!-- Custom Scripts -->

@@ -1,10 +1,8 @@
 from flask import Flask, jsonify, request
-import nltk
 import torch
-import datetime
 import dill
 from waitress import serve
-import translation 
+import translation
 your_global_variable = None  # 不用的话记得删掉
 
 # 初始化参数设置
@@ -21,15 +19,16 @@ DROPOUT = 0.1  # dropout比例
 MAX_LENGTH = 60  # 最大句子长度
 
 SAVE_FILE = 'save/model(1).pt'  # 模型保存路径(注意如当前目录无save文件夹需要自己创建)
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device('cpu')
 test_file = 'nmt/en-cn/test.txt'
 # with open('data.pkl', 'rb') as f:
 # 	data = dill.load(f)
 
 with open('cndict', 'rb') as f:
-	cndict = dill.load(f)
+    cndict = dill.load(f)
 with open('endict', 'rb') as f:
-	endict = dill.load(f)
+    endict = dill.load(f)
 
 src_vocab = len(endict[0])
 tgt_vocab = len(cndict[0])
@@ -68,4 +67,4 @@ def query_translation():
 if __name__ == "__main__":
     init_server()
     # app.run(host='0.0.0.0', port=2345, debug=False)
-    serve(app, host="0.0.0.0", port=2377)  # 请在2335~2400之间选择一个端口
+    serve(app, host="0.0.0.0", port=2337)  # 请在2335~2400之间选择一个端口

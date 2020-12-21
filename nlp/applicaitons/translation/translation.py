@@ -26,7 +26,8 @@ DROPOUT = 0.1  # dropout比例
 MAX_LENGTH = 60  # 最大句子长度
 
 SAVE_FILE = 'save/model(1).pt'  # 模型保存路径(注意如当前目录无save文件夹需要自己创建)
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device('cpu')
 
 # with open('data.pkl', 'rb') as f:
 # 	data = dill.load(f)
