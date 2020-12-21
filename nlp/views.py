@@ -8,6 +8,10 @@ def page_extract(request):
     context = session_contrast(request)
     return render(request, './extract.html', context)
 
+def page_sana(request):
+    context = session_contrast(request)
+    return render(request, './sana.html', context)
+
 
 def page_text_classification_ch(request):
     context = session_contrast(request)
@@ -73,6 +77,8 @@ def query_extract(request):
 
 
 def query_text_classification_ch(request):
+
+def query_sana(request):
     if request.is_ajax() and request.method == 'POST':
         # Fetch Source
         source = request.POST.get('source', False)
@@ -137,8 +143,28 @@ def query_mrc(request):
     return render(request, './mrc.html')
 
 
-# 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
-def query_template(request):
+def query_sana(request):
+    if request.is_ajax() and request.method == 'POST':
+        # Fetch Source
+        source = request.POST.get('source', False)
+
+        if not source:
+            return JsonResponse({'jsana': '__ERROR__'})
+
+        # Query
+        try:
+            jresponse = requests.post('http://localhost:2347/query_server',
+                                      data={'source': source})
+            jsana = jresponse.json()['jserver']
+        except Exception:
+            jsana = '__ERROR__'
+            traceback.print_exc()
+
+        return JsonResponse({'jsana': jsana})
+    return render(request, './sana.html')
+
+
+def query_template(request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
     if request.is_ajax() and request.method == 'POST':
         # Fetch Source
         source = request.POST.get('source', False)
