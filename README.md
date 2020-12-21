@@ -40,8 +40,9 @@
 - pytorch_pretrained_bert (tested with version 0.6.2)
 
 #### 翻译模块
-- nltk (tested with version TODO)
-- pytorch (tested with version TODO)
+- nltk (tested with version 3.5)
+- torch (tested with version 1.6.0)
+- dill (tested with version 0.3.3)
 
 #### 你的模块写在这里
 - 你的模块写在这里
@@ -80,13 +81,13 @@
 3. 位于项目根目录，输入命令`python manage.py runserver 0:2444`来启动网站，随后在浏览器中输入本机网址及端口`2444`。其中，`0`代表`0.0.0.0`，而`2444`代表网站的默认端口，你可以将端口改为`1024~65535`中的任意一个数值。但需要注意的是，不要设置重复的端口号。
 
 > 👇信息抽取模块
-4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
+4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
 
 > 👇中文新闻分类模块
-5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
+5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
 > 👇翻译模块
-6. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2337`启动成功。
+6. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 翻译模块已经在端口`2337`启动成功。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -113,7 +114,7 @@
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
 1. 为了创建类似于信息抽取模块（已占用端口号`2334`）的服务，以便于 Django 框架中的视图层向创建的服务发送请求并接收响应，你可以参考`nobody-likes-problem/nlp/applicaitons/server_template`中的文件格式，自行在`nobody-likes-problem/nlp/applicaitons`中创建一个新的文件夹（例如`nobody-likes-problem/nlp/applicaitons/dialog`），并参考`/server_template`中的`server.py`、`configure.py`和`__init__.py`文件复制到`/dialog`中。
 2. 接着，参考`nobody-likes-problem/nlp/applicaitons/dialog/server.py`中`分词完之后`字段所在行的注释，编写自己的服务内核。
-3. 在服务根目录，输入命令`python ./server.py`来启动你刚刚创建的模块。随后，在浏览器中输入本机网址及对应端口，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
+3. 在服务根目录，输入命令`python ./server.py`来启动你刚刚创建的模块。随后，在浏览器中输入本机网址及对应端口，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。
 
 ### 如何展示你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。

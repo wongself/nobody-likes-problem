@@ -8,6 +8,7 @@
 ### 环境依赖
 - nltk (tested with version 3.5)
 - torch (tested with version 1.6.0)
+- dill (tested with version 0.3.3)
 
 ### 环境安装
 1. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。
@@ -20,10 +21,10 @@
 ## 项目开发
 
 ### 项目调试
-1. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
+1. 位于服务根目录，输入命令`python ./server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。
 
 ### 项目维护
-1. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
+1. 位于服务根目录，输入命令`python ./server.py`来启动翻译模块。
 
 ### 模型训练
 1. 从网盘下载模型训练相关代码，运行细节参考其中README.md。
