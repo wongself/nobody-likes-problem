@@ -88,7 +88,7 @@
 
 > 👇对话系统模块
 >
-> 9.请参考 [README](./nlp/applicaitons/dialog/README.md) 文件
+> 9.项目需要的数据集、模型、预训练模型、词向量等具体导入方法请参考 [README](./nlp/applicaitons/dialog/README.md) 文件
 ## 项目开发
 
 ### 项目调试
