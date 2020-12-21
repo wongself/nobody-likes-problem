@@ -79,6 +79,10 @@
               class="nav-item {% block nav_translation %}{% endblock %} mt-2 mt-lg-0">
               <a class="nav-link rounded" href="{% url 'translation' %}">机器翻译</a>
             </li>
+            <li
+              class="nav-item {% block nav_mrc %}{% endblock %} mt-2 mt-lg-0">
+              <a class="nav-link rounded" href="{% url 'mrc' %}">阅读理解</a>
+            </li>
             <!-- 复制下方的<li>块，粘贴在该注释之上，并将 template 字段进行重命名，就像 nav_extract 一样 -->
             <li
               class="nav-item {% block nav_template %}{% endblock %} mt-2 mt-lg-0">
