@@ -155,5 +155,10 @@ dmypy.json
 # User customization
 /data
 /static
-.vscode
+
+# Text Classification
+/nlp/applicaitons/text_classification_ch/ERNIE_pretrain/
+/nlp/applicaitons/text_classification_ch/THUCNews/
+
+# Translation
 model*.pt

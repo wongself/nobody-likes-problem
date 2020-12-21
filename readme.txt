@@ -1,0 +1,1 @@
+把/nlp/applicaitons/text_classification_ch/THUCNews/里所有东西放到原位即可

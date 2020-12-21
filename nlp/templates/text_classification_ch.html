@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- Active -->
-{% block nav_template %}
+{% block nav_text_classification_ch %}
 active
 {% endblock %}
 <!-- Active -->
@@ -11,14 +11,13 @@ active
 {% block custom_css %}
 
 <!-- Custom -->
-<link rel="stylesheet" href="{% static 'nlp/css/custom/template.css' %}">
+<link rel="stylesheet" href="{% static 'nlp/css/custom/text_classification_ch.css' %}">
 
 {% endblock %}
 <!-- Custom Styles -->
 
 <!-- Page Layout -->
 {% block page_layout %}
-<input type="hidden" value="{{ contrast|default:'moon' }}" id="input_contrast" />
 <div class="container page-container">
 
   <!-- Menu -->
@@ -31,10 +30,10 @@ active
         type="button" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false" style="font-size: 1rem;"><span
           class="d-none d-sm-inline-block mr-1">源语言</span><span
-          class="font-weight-bold">英文</span></button>
+          class="font-weight-bold">中文</span></button>
       <div class="dropdown-menu">
-        <button class="dropdown-item" type="button">英文</button>
-        <button class="dropdown-item" type="button" disabled>中文（暂不支持）</button>
+        <!-- <button class="dropdown-item" type="button" disabled>英文（暂不支持）</button> -->
+        <button class="dropdown-item" type="button">中文</button>
       </div>
       <!-- Language -->
 
@@ -54,8 +53,8 @@ active
         <!-- Search -->
         <button type="button"
           class="btn btn-primary tab-button px-2 py-1 px-sm-4 m-0"
-          id="template_button" onclick="trigger_template()">
-          <span>开始搜索</span>
+          id="text_classification_ch_button" onclick="trigger_text_classification_ch()">
+          <span>开始分类</span>
           <i class="fas fa-arrow-right"></i>
         </button>
         <!-- Search -->
@@ -90,9 +89,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入以搜索。</div>
+              <div class="placeholder-title">在此输入文本以进行文本分类。</div>
               <div class="placeholder-note">
-                <p>点击<code>搜索</code>按钮来提交输入文本。</p>
+                <p>点击<code>开始分类</code>按钮来提交输入文本。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -160,7 +159,7 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示搜索结果。</div>
+              <div class="placeholder-title">此处显示分类结果。</div>
               <div class="placeholder-note">
                 <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
               </div>
@@ -200,11 +199,11 @@ active
 <!-- Page Intro -->
 {% block page_intro_img %}
 <img src="{% static 'nlp/img/svg/extract.svg' %}" class="img-fluid"
-  alt="Template">
+  alt="text_classification_ch">
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Template</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>text_classification_ch</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
@@ -221,7 +220,7 @@ active
 {% block custom_js %}
 
 <!-- Custom -->
-<script type="text/javascript" src="{% static 'nlp/js/custom/template.js' %}"></script>
+<script type="text/javascript" src="{% static 'nlp/js/custom/text_classification_ch.js' %}"></script>
 
 {% endblock %}
 <!-- Custom Scripts -->
