@@ -11,6 +11,7 @@
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
 - [中文新闻分类模块测试: 2336](http://101.124.42.4:2336)
+- [翻译模块测试: 2377](http://101.124.42.4:2377)
 - [你的模块测试: 2345](http://101.124.42.4:2345)
 
 ### 环境依赖
@@ -37,6 +38,10 @@
 - tqdm (tested with version 4.50.2)
 - pytorch_pretrained_bert (tested with version 0.6.2)
 
+#### 翻译模块
+- nltk (tested with version TODO)
+- pytorch (tested with version TODO)
+
 #### 你的模块写在这里
 - 你的模块写在这里
 - 你的模块写在这里
@@ -53,6 +58,14 @@
 
 > 👇中文新闻分类模块
 5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](https://github.com/wongself/nobody-likes-problem/tree/ZJ/nlp/applicaitons/text_classification_ch/README.md) 文件。
+
+> 👇翻译模块
+6. 从网盘中下载翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考翻译模块的[README](./nlp/applicaitons/translation/README.md)
+```
+链接：https://pan.baidu.com/s/14iBXZ0CG46QvEbWoMXk2Ww 
+提取码：41gy 
+复制这段内容后打开百度网盘手机App，操作更方便哦
+```
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
@@ -71,6 +84,9 @@
 > 👇中文新闻分类模块
 5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
+> 👇翻译模块
+6. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块，随后在浏览器中输入本机网址及端口`2377`，来测试模块是否启动成功。若页面出现出现`NLP in Your Area`，则表明模块启动成功。
+
 > 👇你的模块写在这里
 5. 你的模块写在这里
 
@@ -85,6 +101,9 @@
 
 > 👇中文新闻分类模块
 5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2336`启动成功。
+
+> 👇翻译模块
+6. 位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动翻译模块。
 
 > 👇你的模块写在这里
 5. 你的模块写在这里
