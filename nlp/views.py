@@ -8,22 +8,24 @@ def page_extract(request):
     context = session_contrast(request)
     return render(request, './extract.html', context)
 
-def page_mrc(request):  
-    context = session_contrast(request)
-    return render(request, './mrc.html', context)
-
-def page_translation(request):
-    context = session_contrast(request)
-    return render(request, './translation.html', context)
-
 
 def page_text_classification_ch(request):
     context = session_contrast(request)
     return render(request, './text_classification_ch.html', context)
 
 
-def page_template(
-        request):  # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
+def page_translation(request):
+    context = session_contrast(request)
+    return render(request, './translation.html', context)
+
+
+def page_mrc(request):
+    context = session_contrast(request)
+    return render(request, './mrc.html', context)
+
+
+# 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
+def page_template(request):  
     context = session_contrast(request)
     return render(request, './template.html', context)
 
@@ -69,26 +71,6 @@ def query_extract(request):
         return JsonResponse({'jextract': jextract})
     return render(request, './extract.html')
 
-def query_mrc(request):  
-    if request.is_ajax() and request.method == 'POST':
-        # Fetch Source
-        source = request.POST.get('source', False)
-
-        if not source:
-            return JsonResponse({'jmrc': '__ERROR__'})
-
-        # Query
-        try:
-            jresponse = requests.post('http://localhost:2345/mrc',
-                                      data={'source': source})
-            jmrc = jresponse.json()['jmrc']
-        except Exception:
-            jmrc = '__ERROR__'
-            traceback.print_exc()
-        print(jmrc)
-        return JsonResponse({'jmrc': jmrc})
-    return render(request, './mrc.html')
-
 
 def query_text_classification_ch(request):
     if request.is_ajax() and request.method == 'POST':
@@ -132,6 +114,27 @@ def query_translation(request):
 
         return JsonResponse({'jtranslation': jtranslation})
     return render(request, './translation.html')
+
+
+def query_mrc(request):
+    if request.is_ajax() and request.method == 'POST':
+        # Fetch Source
+        source = request.POST.get('source', False)
+
+        if not source:
+            return JsonResponse({'jmrc': '__ERROR__'})
+
+        # Query
+        try:
+            jresponse = requests.post('http://localhost:2338/mrc',
+                                      data={'source': source})
+            jmrc = jresponse.json()['jmrc']
+        except Exception:
+            jmrc = '__ERROR__'
+            traceback.print_exc()
+        print(jmrc)
+        return JsonResponse({'jmrc': jmrc})
+    return render(request, './mrc.html')
 
 
 # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 query_extract 一样。
