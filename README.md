@@ -61,7 +61,6 @@
 - tensorboardX(tested with version 1.9)
 - pytorch-pretrained-bert(tested with version 0.6.1)
 - tqdm (tested with version 4.36.1)
-
 ### 环境安装
 
 1. 位于用户根目录，输入命令`git clone git@github.com:wongself/nobody-likes-problem.git`来下载该仓库。
@@ -115,7 +114,7 @@
 
 > 👇对话系统模块
 >
-> 9.~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2335启动成功。
+> 9.~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2335`启动成功。
 ### 项目维护
 
 1. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`和`python manage.py collectstatic --no-input`来生成网站运行所需的必要文件。
@@ -139,9 +138,8 @@
 
 > 👇对话系统模块
 
-9. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动机器翻译模块。~~ 对话系统模块已经在端口`23375启动成功。
+9. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。~~ 对话系统模块已经在端口`2335`启动成功。。
 
-> 👇对话系统模型你的模块写在这里
 ### 如何构建你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
 1. 为了创建类似于信息抽取模块（已占用端口号`2334`）的服务，以便于 Django 框架中的视图层向创建的服务发送请求并接收响应，你可以参考`nobody-likes-problem/nlp/applicaitons/server_template`中的文件格式，自行在`nobody-likes-problem/nlp/applicaitons`中创建一个新的文件夹（例如`nobody-likes-problem/nlp/applicaitons/dialog`），并参考`/server_template`中的`server.py`、`configure.py`和`__init__.py`文件复制到`/dialog`中。

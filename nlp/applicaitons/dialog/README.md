@@ -44,5 +44,5 @@
 1. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。
 
 ### 项目维护
-1. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/dialog.py`来启动信息抽取模块。
+1. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。
 
