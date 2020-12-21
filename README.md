@@ -10,6 +10,7 @@
 
 ### 模块测试
 - [信息抽取模块测试: 2334](http://101.124.42.4:2334)
+- [对话模块测试: 2335](http://101.124.42.4:2335)
 - [中文新闻分类模块测试: 2336](http://101.124.42.4:2336)
 - [机器翻译模块测试: 2337](http://101.124.42.4:2337)
 - [阅读理解模块测试: 2338](http://101.124.42.4:2338)
@@ -55,10 +56,11 @@
 - paddlepaddle (tested with version 1.8.5)
 - Senta (tested with version 2.0.0)
 
-#### 你的模块写在这里
-- 你的模块写在这里
-- 你的模块写在这里
-- 你的模块写在这里
+#### 对话模块
+- torch(tested with version 1.3.1)
+- tensorboardX(tested with version 1.9)
+- pytorch-pretrained-bert(tested with version 0.6.1)
+- tqdm (tested with version 4.36.1)
 
 ### 环境安装
 
@@ -85,8 +87,9 @@
 > 👇阅读理解模块
 8. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
+> 👇对话系统模块
+>
+> 9.请参考 [README](./nlp/applicaitons/dialog/README.md) 文件
 ## 项目开发
 
 ### 项目调试
@@ -110,9 +113,9 @@
 >   情感分析模块
 8. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块，随后在浏览器中输入本机网址及端口`2339`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 情感分析模块已经在端口`2347`启动成功。
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
-
+> 👇对话系统模块
+>
+> 9.~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2335启动成功。
 ### 项目维护
 
 1. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`和`python manage.py collectstatic --no-input`来生成网站运行所需的必要文件。
@@ -131,12 +134,14 @@
 > 👇阅读理解模块
 7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块。~~ 阅读理解模块已经在端口`2338`启动成功。
 
->  情感分析模块
-8. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块。
+>  👇情感分析模块
+8. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块
 
-> 👇你的模块写在这里
-5. 你的模块写在这里
+> 👇对话系统模块
 
+9. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动机器翻译模块。~~ 对话系统模块已经在端口`23375启动成功。
+
+> 👇对话系统模型你的模块写在这里
 ### 如何构建你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
 1. 为了创建类似于信息抽取模块（已占用端口号`2334`）的服务，以便于 Django 框架中的视图层向创建的服务发送请求并接收响应，你可以参考`nobody-likes-problem/nlp/applicaitons/server_template`中的文件格式，自行在`nobody-likes-problem/nlp/applicaitons`中创建一个新的文件夹（例如`nobody-likes-problem/nlp/applicaitons/dialog`），并参考`/server_template`中的`server.py`、`configure.py`和`__init__.py`文件复制到`/dialog`中。

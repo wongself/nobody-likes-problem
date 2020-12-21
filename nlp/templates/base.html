@@ -72,19 +72,8 @@
               <a class="nav-link rounded" href="{% url 'extract' %}">信息抽取</a>
             </li>
             <li
-              class="nav-item {% block nav_text_classification_ch %}{% endblock %} mt-2 mt-lg-0">
-              <a class="nav-link rounded" href="{% url 'text_classification_ch' %}">新闻分类</a>
-            </li>
-            <li
-              class="nav-item {% block nav_translation %}{% endblock %} mt-2 mt-lg-0">
-              <a class="nav-link rounded" href="{% url 'translation' %}">机器翻译</a>
-            </li>
-            <li
-              class="nav-item {% block nav_mrc %}{% endblock %} mt-2 mt-lg-0">
-              <a class="nav-link rounded" href="{% url 'mrc' %}">阅读理解</a>
-              <li
-              class="nav-item {% block nav_sana %}{% endblock %} mt-2 mt-lg-0">
-              <a class="nav-link rounded" href="{% url 'sana' %}">情感分析</a>
+              class="nav-item {% block nav_dialog %}{% endblock %} mt-2 mt-lg-0">
+              <a class="nav-link rounded" href="{% url 'dialog' %}">对话系统</a>
             </li>
             <!-- 复制下方的<li>块，粘贴在该注释之上，并将 template 字段进行重命名，就像 nav_extract 一样 -->
             <li
@@ -199,8 +188,8 @@
     <div
       class="footer-copyright d-flex flex-center canvas-bgcolor {{ contrast|default:'moon' }} py-3">
       <span class="text-muted">© 2020 Copyright</span>
-      <span class="stress-color {{ contrast|default:'moon' }} ml-1">Nobody Likes
-        Problem.</span>
+      <span class="stress-color {{ contrast|default:'moon' }} ml-1">NLP in Your
+        Area.</span>
       <span
         class="stress-color {{ contrast|default:'moon' }} d-none d-md-flex ml-1">Beijing
         Institute of
