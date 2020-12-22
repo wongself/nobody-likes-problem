@@ -89,8 +89,6 @@
 > 👇对话系统模块
 9. 项目需要分别导入数据集、模型、预训练模型、词向量进入 `./nlp/applicaitons/dialog/CMAML/data`、`./nlp/applicaitons/dialog/CMAML/save/cmaml`、`./nlp/ applicaitons/dialog/CMAML/tmp`、`./nlp/applicaitons/dialog/CMAML/vectors`文件夹中，具体导入方法请参考 [README](./nlp/applicaitons/dialog/README.md) 文件。
 
-
-
 ## 项目开发
 
 ### 项目调试
