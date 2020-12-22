@@ -172,7 +172,7 @@ function enable_operation(qtype) {
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
-      $('#template_button').html('开始抽取<i \
+      $('#template_button').html('开始搜索<i \
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     default:
       // Mask
