@@ -165,3 +165,6 @@ dmypy.json
 
 # MRC
 /nlp/applicaitons/mrc/data
+
+# dialog
+.DS_Store

@@ -47,21 +47,8 @@ function ajax_src_submit(source, qtype) {
             flag = parse_extract(ret['jextract'])
             retry_ajax_submit(flag, this)
             break
-<<<<<<< HEAD
-          case 'text_classification_ch': 
-            flag = parse_text_classification_ch(ret['jtext_classification_ch'])
-            retry_ajax_submit(flag, this)
-            break
-          case 'translation': 
-            flag = parse_translation(ret['jtranslation'])
-            retry_ajax_submit(flag, this)
-            break
-          case 'mrc':
-            flag = parse_mrc(ret['jmrc'])
-=======
-          case 'sana':
-            flag = parse_sana(ret['jsana'])
->>>>>>> sana
+          case 'dialog': 
+            flag = parse_dialog(ret['jdialog'])
             retry_ajax_submit(flag, this)
             break
           case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
@@ -100,28 +87,11 @@ function disable_operation(qtype) {
       $('#upload_button').html('<div \
         class="spinner-border spinner-border-sm mr-1" \
         role="status" aria-hidden="true"></div>' + '上传中...').addClass('disabled')
-<<<<<<< HEAD
-    case 'text_classification_ch': 
+    case 'dialog': 
       // Button
-      $('#text_classification_ch_button').html('<div \
-        class="spinner-border spinner-border-sm mr-1" \
-        role="status" aria-hidden="true"></div>' + '分类中...').addClass('disabled')
-    case 'translation': 
-      // Button
-      $('#translation_button').html('<div \
-        class="spinner-border spinner-border-sm mr-1" \
-        role="status" aria-hidden="true"></div>' + '翻译中...').addClass('disabled')
-    case 'mrc': 
-      // Button
-      $('#mrc_button').html('<div \
-        class="spinner-border spinner-border-sm mr-1" \
-        role="status" aria-hidden="true"></div>' + '阅读中...').addClass('disabled')
-=======
-    case 'sana':
-      $('#sana_button').html('<div \
+      $('#dialog_button').html('<div \
        class="spinner-border spinner-border-sm mr-1" \
-       role="status" aria-hidden="true"></div>' + '分析中...').addClass('disabled')
->>>>>>> sana
+       role="status" aria-hidden="true"></div>' + '搜索中...').addClass('disabled')
     case 'template': // 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
       $('#template_button').html('<div \
@@ -144,27 +114,13 @@ function enable_operation(qtype) {
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
       $('#upload_button').html('<i \
         class="fas fa-arrow-up mr-1"></i>上传文档').removeClass('disabled')
-<<<<<<< HEAD
-    case 'text_classification_ch':
+    case 'dialog':// 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
-      $('#text_classification_ch_button').html('开始分类<i \
-        class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
-    case 'translation':
-      // Button
-      $('#translation_button').html('开始翻译<i \
-        class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
-    case 'mrc':
-      // Button
-      $('#mrc_button').html('开始阅读<i \
-=======
-    case 'sana':
-      // Button
-      $('#sana_button').html('开始分析<i \
->>>>>>> sana
+      $('#dialog_button').html('开始对话<i \
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     case 'template':// 复制该段，粘贴在该段之上，并将 template 字段进行重命名，就像 case 'extract' 一样。
       // Button
-      $('#template_button').html('开始搜索<i \
+      $('#template_button').html('开始抽取<i \
         class="fas fa-arrow-right ml-1"></i>').removeClass('disabled')
     default:
       // Mask
