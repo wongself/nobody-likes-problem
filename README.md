@@ -15,7 +15,6 @@
 - [机器翻译模块测试: 2337](http://101.124.42.4:2337)
 - [阅读理解模块测试: 2338](http://101.124.42.4:2338)
 - [情感分析模块测试: 2339](http://101.124.42.4:2339)
-- [服务模板测试: 2345](http://101.124.42.4:2345)
 
 ### 环境依赖
 
@@ -34,6 +33,12 @@
 - torch 1.1.0+ (tested with version 1.6.0)
 - tqdm (tested with version 4.50.2)
 - transformers 2.2.0+ (tested with version 3.4.0)
+
+#### 对话模块
+- torch(tested with version 1.3.1)
+- tensorboardX(tested with version 1.9)
+- pytorch-pretrained-bert(tested with version 0.6.1)
+- tqdm (tested with version 4.36.1)
 
 #### 中文新闻分类模块
 - numpy (tested with version 1.19.2)
@@ -55,12 +60,6 @@
 #### 情感分析模块
 - paddlepaddle (tested with version 1.8.5)
 - Senta (tested with version 2.0.0)
-
-#### 对话模块
-- torch(tested with version 1.3.1)
-- tensorboardX(tested with version 1.9)
-- pytorch-pretrained-bert(tested with version 0.6.1)
-- tqdm (tested with version 4.36.1)
 
 ### 环境安装
 
@@ -127,7 +126,7 @@
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块。~~ 信息抽取模块已经在端口`2334`启动成功。
 
 >  👇对话模块`dialog`
-5. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。~~ 对话系统模块已经在端口`2335`启动成功。
+5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。~~ 对话系统模块已经在端口`2335`启动成功。
 
 > 👇中文新闻分类模块`text_classification_ch`
 6. ~~位于服务根目录，输入命令`python ./server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2336`启动成功。
@@ -139,7 +138,7 @@
 8. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块。~~ 阅读理解模块已经在端口`2338`启动成功。
 
 >  👇情感分析模块`sana`
-9. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块。
+9. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块。~~ 情感分析模块已经在端口`2339`启动成功。
 
 ### 如何构建你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
