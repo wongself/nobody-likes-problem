@@ -72,6 +72,10 @@
               <a class="nav-link rounded" href="{% url 'extract' %}">信息抽取</a>
             </li>
             <li
+              class="nav-item {% block nav_dialog %}{% endblock %} mt-2 mt-lg-0">
+              <a class="nav-link rounded" href="{% url 'dialog' %}">对话系统</a>
+            <li
+            </li>
               class="nav-item {% block nav_text_classification_ch %}{% endblock %} mt-2 mt-lg-0">
               <a class="nav-link rounded" href="{% url 'text_classification_ch' %}">新闻分类</a>
             </li>

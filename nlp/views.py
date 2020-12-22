@@ -9,9 +9,9 @@ def page_extract(request):
     return render(request, './extract.html', context)
 
 
-def page_sana(request):
+def page_dialog(request):
     context = session_contrast(request)
-    return render(request, './sana.html', context)
+    return render(request, './dialog.html', context)
 
 
 def page_text_classification_ch(request):
@@ -27,6 +27,11 @@ def page_translation(request):
 def page_mrc(request):
     context = session_contrast(request)
     return render(request, './mrc.html', context)
+
+
+def page_sana(request):
+    context = session_contrast(request)
+    return render(request, './sana.html', context)
 
 
 # 复制该函数，粘贴在该函数之上，并将 template 字段进行重命名，就像 page_extract 一样。
@@ -75,6 +80,27 @@ def query_extract(request):
 
         return JsonResponse({'jextract': jextract})
     return render(request, './extract.html')
+
+
+def query_dialog(request):
+    if request.is_ajax() and request.method == 'POST':
+        # Fetch Source
+        source = request.POST.get('source', False)
+
+        if not source:
+            return JsonResponse({'jdialog': '__ERROR__'})
+
+        # Query
+        try:
+            jresponse = requests.post('http://localhost:2335/query_dialog',
+                                      data={'source': source})
+            jdialog = jresponse.json()['jdialog']
+        except Exception:
+            jdialog = '__ERROR__'
+            traceback.print_exc()
+
+        return JsonResponse({'jdialog': jdialog})
+    return render(request, './dialog.html')
 
 
 def query_text_classification_ch(request):
