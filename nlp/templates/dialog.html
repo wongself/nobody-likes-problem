@@ -90,7 +90,7 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="left_text_place">
-              <div class="placeholder-title">在此输入文本。</div>
+              <div class="placeholder-title">在此输入以对话。</div>
               <div class="placeholder-note">
                 <p>点击<code>对话</code>按钮来提交输入文本。</p>
               </div>
@@ -124,7 +124,7 @@ active
 
         <!-- Export Button -->
         <button type="button"
-          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0"
+          class="btn btn-blue-grey tab-button px-2 py-1 px-sm-4 m-0 d-none"
           id="export_button">
           导出结果
           <i class="fas fa-share"></i>
@@ -160,9 +160,9 @@ active
 
             <!-- Placeholder -->
             <div class="pane-placeholder" id="right_result_place">
-              <div class="placeholder-title">此处显示搜索结果。</div>
-              <div class="placeholder-note">
-                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的搜索结果。</p>
+              <div class="placeholder-title">此处显示对话结果。</div>
+              <div class="placeholder-note d-none">
+                <p>点击<code>导出</code>按钮可下载&thinsp;JSON&thinsp;格式的对话结果。</p>
               </div>
             </div>
             <!-- Placeholder -->
@@ -204,7 +204,7 @@ active
 {% endblock %}
 
 {% block page_intro_title %}
-<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>dialog</h6>
+<h6 class="h6 pb-1"><i class="fas fa-file-invoice pr-2"></i>Dialog System</h6>
 {% endblock %}
 
 {% block page_intro_detail %}
