@@ -14,8 +14,8 @@
 - [中文新闻分类模块测试: 2336](http://101.124.42.4:2336)
 - [机器翻译模块测试: 2337](http://101.124.42.4:2337)
 - [阅读理解模块测试: 2338](http://101.124.42.4:2338)
+- [情感分析模块测试: 2339](http://101.124.42.4:2339)
 - [服务模板测试: 2345](http://101.124.42.4:2345)
-- [情感分析模块测试: 2347](http://101.124.42.4:2347)
 
 ### 环境依赖
 
@@ -67,26 +67,27 @@
 2. 进入项目`nobody-likes-problem`的目录，输入命令`pip install -r requirements.txt`来下载环境依赖，推荐在 Anaconda 创建的虚拟环境中安装所需依赖。
 3. 位于项目根目录，先后输入命令`python manage.py makemigrations`、`python manage.py migrate`来测试 Django 架构是否安装成功。
 
-> 👇信息抽取模块
-4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./data`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/spert/README.md) 文件。
+> 👇信息抽取模块`extract`
+4. 位于项目根目录，输入命令`cp -r /data/wsf/nobody-likes-problem/data ./`来导入信息抽取模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/spert/README.md) 文件。
 
-> 👇中文新闻分类模块
+> 👇中文新闻分类模块`text_classification_ch`
 5. 位于服务根目录，输入命令`cp -r /data/zj/LanguageInformationProcessing/git-try/nobody-likes-problem/nlp/applicaitons/text_classification_ch/THUCNews ./`来导入中文新闻分类模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/text_classification_ch/README.md) 文件。
 
-> 👇机器翻译模块
+> 👇机器翻译模块`translation`
 6. 从网盘中下载机器翻译模型，存入相对于项目根目录的`nlp/applicaitons/translation/save`目录下。更多信息请参考机器翻译模块的[README](./nlp/applicaitons/translation/README.md)
 ```
 链接：https://pan.baidu.com/s/14iBXZ0CG46QvEbWoMXk2Ww 
 提取码：41gy 
 复制这段内容后打开百度网盘手机App，操作更方便哦
 ```
-> 👇情感分析模块
-7. 项目根目录首次运行`python ./server.py`即可安装，但需要等待一段时间直到senta文件夹下生成model_files目录
 
-> 👇阅读理解模块
-8. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
+> 👇阅读理解模块`mrc`
+7. 位于服务根目录，输入命令`cp -r /data/zhq/nobody-likes-problem/nlp/applicaitons/mrc/data ./`来导入阅读理解模块运行所需的预训练模型、外部数据等必要资料。若需手动构建，请参考 [README](./nlp/applicaitons/mrc/README.md) 文件。
 
-> 👇对话系统模块
+> 👇情感分析模块`sana`
+8. 位于项目根目录，首次运行`python ./nlp/applicaitons/sana/server.py`即可安装情感分析模块运行所需的预训练模型、外部数据等必要资料，但需要等待较长一段时间直到senta文件夹下生成model_files目录。
+
+> 👇对话模块
 9. 项目需要分别导入数据集、模型、预训练模型、词向量进入 `./nlp/applicaitons/dialog/CMAML/data`、`./nlp/applicaitons/dialog/CMAML/save/cmaml`、`./nlp/ applicaitons/dialog/CMAML/tmp`、`./nlp/applicaitons/dialog/CMAML/vectors`文件夹中，具体导入方法请参考 [README](./nlp/applicaitons/dialog/README.md) 文件。
 
 ## 项目开发
@@ -97,22 +98,21 @@
 2. 位于项目根目录，输入命令`python manage.py collectstatic --no-input`来更新网站所需的静态文件（CSS、JS、HTML、IMG...）。仅当第一次启动项目或者位于`nobody-likes-problem/nlp/static`的静态文件被修改时才需要执行这项操作。
 3. 位于项目根目录，输入命令`python manage.py runserver 0:2444`来启动网站，随后在浏览器中输入本机网址及端口`2444`。其中，`0`代表`0.0.0.0`，而`2444`代表网站的默认端口，你可以将端口改为`1024~65535`中的任意一个数值。但需要注意的是，不要设置重复的端口号。
 
-> 👇信息抽取模块
+> 👇信息抽取模块`extract`
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块，随后在浏览器中输入本机网址及端口`2334`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 信息抽取模块已经在端口`2334`启动成功。
 
-> 👇中文新闻分类模块
+> 👇中文新闻分类模块`text_classification_ch`
 5. ~~位于服务根目录，输入命令`python ./server.py`来启动中文新闻分类模块，随后在浏览器中输入本机网址及端口`2336`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
-> 👇机器翻译模块
+> 👇机器翻译模块`translation`
 6. ~~位于服务根目录，输入命令`python ./server.py`来启动机器翻译模块，随后在浏览器中输入本机网址及端口`2337`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 机器翻译模块已经在端口`2337`启动成功。
 
-> 👇阅读理解模块
+> 👇阅读理解模块`mrc`
 7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块，随后在浏览器中输入本机网址及端口`2338`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 阅读理解模块已经在端口`2338`启动成功。
 
->   👇情感分析模块
-8. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块，随后在浏览器中输入本机网址及端口`2339`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 情感分析模块已经在端口`2347`启动成功。
-
-> 👇对话系统模块
+> 👇情感分析模块`sana`
+8. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块，随后在浏览器中输入本机网址及端口`2339`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 情感分析模块已经在端口`2339`启动成功。
+> 👇对话模块`dialog`
 >
 9. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块，随后在浏览器中输入本机网址及端口`2335`，来测试模块是否启动成功。若页面出现出现`Nobody Likes Problem`，则表明模块启动成功。~~ 对话模块已经在端口`2335`启动成功。
 
@@ -122,24 +122,24 @@
 2. 位于项目根目录，~~输入命令`gunicorn nlp_in_your_area.wsgi -w 4 -k gthread -b 0.0.0.0:2444`来启动网站。~~ 输入命令`python manage.py runserver 0:2444`来启动项目。
 3. 若有附加功能需要添加，可以将 Python 代码放置于`nobody-likes-problem/nlp/applicaitons`中，在`nobody-likes-problem/nlp/urls.py`和`nobody-likes-problem/nlp/views.py`设置相应的链接跳转和消息处理，并在`nobody-likes-problem/nlp/templates`和`nobody-likes-problem/nlp/static/nlp`中修改相应的前端代码和 AJAX 相应代码。
 
-> 👇信息抽取模块
+> 👇信息抽取模块`extract`
 4. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/spert/server.py`来启动信息抽取模块。~~ 信息抽取模块已经在端口`2334`启动成功。
 
-> 👇中文新闻分类模块
-5. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/text_classification_ch/server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2336`启动成功。
+> 👇中文新闻分类模块`text_classification_ch`
+5. ~~位于服务根目录，输入命令`python ./server.py`来启动中文新闻分类模块。~~ 中文新闻分类模块已经在端口`2336`启动成功。
 
-> 👇机器翻译模块
-6. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/translation/server.py`来启动机器翻译模块。~~ 机器翻译模块已经在端口`2337`启动成功。
+> 👇机器翻译模块`translation`
+6. ~~位于服务根目录，输入命令`python ./server.py`来启动机器翻译模块。~~ 机器翻译模块已经在端口`2337`启动成功。
 
-> 👇阅读理解模块
+> 👇阅读理解模块`mrc`
 7. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/mrc/server.py`来启动阅读理解模块。~~ 阅读理解模块已经在端口`2338`启动成功。
 
->  👇情感分析模块
-8. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块
+>  👇情感分析模块`sana`
+8. 位于项目根目录，输入命令`python ./nlp/applicaitons/sana/server.py`来启动情感分析模块。
 
-> 👇对话系统模块
+>  👇对话模块`dialog`
 
-9. ~~位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。~~ 对话系统模块已经在端口`2335`启动成功。。
+9. 位于项目根目录，输入命令`python ./nlp/applicaitons/dialog/server.py`来启动对话系统模块。~~ 对话系统模块已经在端口`2335`启动成功。
 
 ### 如何构建你的服务
 > 为了调试过程顺利，请仔细阅读下方文字，不要遗漏部分关键字。
