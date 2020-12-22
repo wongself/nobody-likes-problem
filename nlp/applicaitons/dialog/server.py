@@ -56,5 +56,5 @@ def query_dialog():
 
 if __name__ == "__main__":
     init_server()
-    # app.run(host='0.0.0.0', port=2345, debug=False)
+    # app.run(host='0.0.0.0', port=2335, debug=False)
     serve(app, host="0.0.0.0", port=2335)  # 请在2335~2400之间选择一个端口
